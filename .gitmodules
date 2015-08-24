@@ -37,3 +37,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = git://github.com/derekwyatt/vim-scala
+[submodule "bundle/vim-geeknote"]
+	path = bundle/vim-geeknote
+	url = https://github.com/neilagabriel/vim-geeknote
