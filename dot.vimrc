@@ -114,7 +114,6 @@ let g:Tex_ViewRule_pdf = 'Preview'"
 let python_highlight_all = 1
 let python_slow_sync = 1
 
-
 "let g:miniBufExplorerAutoStart = 1
 "let g:miniBufExplBuffersNeeded = 1
 
@@ -146,4 +145,3 @@ let g:syntastic_tex_checkers = ['']
 let g:syntastic_disabled_filetypes = ['tex']
 
 let g:gitgutter_max_signs = 2048
-
