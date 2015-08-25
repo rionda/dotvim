@@ -5,7 +5,7 @@
 	path = bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
 [submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
+	path = bundle/jedi-vim~
 	url = git://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/python-syntax"]
 	path = bundle/python-syntax
