@@ -145,3 +145,10 @@ let g:syntastic_tex_checkers = ['']
 let g:syntastic_disabled_filetypes = ['tex']
 
 let g:gitgutter_max_signs = 2048
+
+
+let g:vimtex_quickfix_ignored_warnigs = [
+	\ 'Underfull',
+	\ 'Overfull',
+	\ 'specifier changed to',
+\ ]
