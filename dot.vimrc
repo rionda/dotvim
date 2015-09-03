@@ -104,13 +104,6 @@ let g:Imap_UsePlaceHolders = 0
 " 	setlocal noexpandtab
 "endfun
 
-" " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" " The following changes the default filetype back to 'tex':
-let g:tex_flavor = 'latex'
-let g:Tex_ViewRule_pdf = 'Preview'"
-"let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'"
-
 let python_highlight_all = 1
 let python_slow_sync = 1
 
@@ -126,9 +119,6 @@ autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 sof
 
 autocmd FileType *.sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=8 softtabstop=2 shiftwidth=2
 
-let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -139,13 +129,23 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_python_checkers = ['flake8'] "flake8 can be installed via pip3
+" We have a different plugin for tex
 let g:syntastic_tex_checkers = ['']
 let g:syntastic_disabled_filetypes = ['tex']
 
 let g:gitgutter_max_signs = 2048
 
+
+" " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" " The following changes the default filetype back to 'tex':
+let g:tex_flavor = 'latex'
+let g:Tex_ViewRule_pdf = 'Preview'"
+"let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'"
 
 let g:vimtex_quickfix_ignored_warnings = [
 	\ 'Underfull',
