@@ -119,11 +119,10 @@ autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 sof
 
 autocmd FileType *.sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=8 softtabstop=2 shiftwidth=2
 
+" Suggested by syntastic README
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" Suggested by syntastic README
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
