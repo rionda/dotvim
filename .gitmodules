@@ -40,3 +40,6 @@
 [submodule "bundle/vim-geeknote"]
 	path = bundle/vim-geeknote
 	url = https://github.com/neilagabriel/vim-geeknote
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git

@@ -4,6 +4,11 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 " This must be first, because it changes other options as side effect
 set nocompatible
 
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+" Temporary disabling this as it conflicts badly with syntastic
+call add(g:pathogen_disabled, 'vim-plugin-minbufexpl')
+
 " Call pathogen to make it easy to install plugins under ~/.vim/bundle
 call pathogen#infect()
 call pathogen#helptags()
@@ -130,7 +135,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_python_python_exec = '/opt/local/bin/python3'
 let g:syntastic_python_checkers = ['flake8'] "flake8 can be installed via pip3
 " We have a different plugin for tex
 let g:syntastic_tex_checkers = ['']
