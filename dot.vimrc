@@ -1,13 +1,13 @@
+" To disable a plugin, add it's bundle name to the following list
+" XXX It doesn't seem to work...
+let g:pathogen_disabled = []
+"call add(g:pathogen_disabled, 'vim-plugin-minbufexpl')
 " This is always first because we have pathogen in bundle/
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = []
-" Temporary disabling this as it conflicts badly with syntastic
-call add(g:pathogen_disabled, 'vim-plugin-minbufexpl')
 
 " Call pathogen to make it easy to install plugins under ~/.vim/bundle
 call pathogen#infect()
@@ -24,6 +24,7 @@ set nobackup			 " no backup files (different from no swapfiles!)
 "set noswapfile			 " no swap files (you don't want it for remote connections
 set directory=$HOME/.vim/swapfiles// " directory for swapfiles
 
+let mapleader = ','		" use ',' as the leader
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set colorcolumn=+1		 " highlight the column after textwidth
 set title                " change the terminal's title
@@ -143,6 +144,9 @@ let g:syntastic_disabled_filetypes = ['tex']
 
 let g:gitgutter_max_signs = 2048
 
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
 
 " " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
