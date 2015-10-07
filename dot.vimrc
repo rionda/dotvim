@@ -123,7 +123,9 @@ set completeopt=menuone,longest,preview
 
 autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 completeopt-=preview
 
-autocmd FileType *.sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=8 softtabstop=2 shiftwidth=2
+autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=8 softtabstop=2 shiftwidth=2
+
+autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
 
 " Suggested by syntastic README
 set statusline+=%#warningmsg#
@@ -133,6 +135,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
