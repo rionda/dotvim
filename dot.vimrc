@@ -127,6 +127,12 @@ autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop
 
 autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
 
+autocmd filetype crontab setlocal nobackup nowritebackup
+
+autocmd filetype html setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
+
+autocmd filetype xhtml setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
+
 " Suggested by syntastic README
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
