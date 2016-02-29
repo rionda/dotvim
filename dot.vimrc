@@ -133,6 +133,8 @@ autocmd filetype html setlocal autoindent expandtab textwidth=80 tabstop=4 softt
 
 autocmd filetype xhtml setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
 
+autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
 " Suggested by syntastic README
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -171,6 +173,14 @@ let g:vimtex_quickfix_ignored_warnings = [
 	\ 'Overfull',
 	\ 'specifier changed to',
 \ ]
+
+let g:vimtex_latexmk_callback_hook = 'HookSkimUpdate'
+
+function! HookSkimUpdate(status)
+	if a:status
+		call system('/Users/matteo/dotvim/update_skim_pdf.sh ' . b:vimtex.tex)
+	endif
+endfunction
 
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
