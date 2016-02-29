@@ -20,7 +20,8 @@ fi
 mkdir ycmd_build && \
 cd ycmd_build && \
 cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=${CLANG_DLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} .  ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
-make ycm_support_libs && \
+cmake -DEXTERNAL_LIBCLANG_PATH=${CLANG_DLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} --build . --target ycm_core --config Release
+#make ycm_support_libs && \
 make && \
 cd .. && \
 rm -rf ycmd_build
