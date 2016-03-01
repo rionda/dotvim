@@ -163,9 +163,9 @@ let g:indent_guides_guide_size=1
 
 " " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" " The following changes the default filetype back to 'tex':
+ " The following changes the default filetype back to 'tex':
 let g:tex_flavor = 'latex'
-let g:Tex_ViewRule_pdf = 'Preview'"
+"let g:Tex_ViewRule_pdf = 'Preview'"
 "let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'"
 
 let g:vimtex_quickfix_ignored_warnings = [
@@ -174,6 +174,12 @@ let g:vimtex_quickfix_ignored_warnings = [
 	\ 'specifier changed to',
 \ ]
 
+let g:vimtex_view_general_viewer
+    \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '-b -g @line @pdf @tex'
+let g:vimtex_complete_close_braces = 1
+let g:vimtex_complete_recursive_bib = 1
+let g:vimtex_indent_enabled = 0
 let g:vimtex_latexmk_callback_hook = 'HookSkimUpdate'
 
 function! HookSkimUpdate(status)
