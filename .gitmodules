@@ -58,3 +58,6 @@
 [submodule "bundle/FoldText"]
 	path = bundle/FoldText
 	url = https://github.com/Konfekt/FoldText.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = https://github.com/wincent/command-t.git
