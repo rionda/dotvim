@@ -55,3 +55,9 @@
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
+[submodule "bundle/FastFold"]
+	path = bundle/FastFold
+	url = https://github.com/Konfekt/FastFold.git
+[submodule "bundle/FoldText"]
+	path = bundle/FoldText
+	url = https://github.com/Konfekt/FoldText.git
