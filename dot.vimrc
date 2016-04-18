@@ -8,7 +8,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-
 " Call pathogen to make it easy to install plugins under ~/.vim/bundle
 call pathogen#infect()
 call pathogen#helptags()
@@ -163,30 +162,63 @@ let g:indent_guides_guide_size=1
 
 " " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
- " The following changes the default filetype back to 'tex':
+" The following changes the default filetype back to 'tex':
 let g:tex_flavor = 'latex'
 "let g:Tex_ViewRule_pdf = 'Preview'"
 "let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'"
 
 let g:vimtex_quickfix_ignored_warnings = [
-	\ 'Underfull',
-	\ 'Overfull',
-	\ 'specifier changed to',
+\ 'Underfull',
+\ 'Overfull',
+\ 'specifier changed to',
 \ ]
 
-let g:vimtex_view_general_viewer
-    \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_options = '-b -g @line @pdf @tex'
+" LaTeX completion with YouCompleteMe. From the VimTeX docs
+if !exists('g:ycm_semantic_triggers')
+let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\(include(only)?|input){[^}]*'
+    \ ]
+
+set foldmethod=syntax
+let g:tex_fold_enabled=1
+let g:vimsyn_folding='af'
+
+set foldenable
+set foldlevel=0
+set foldlevelstart=0
+" specifies for which commands a fold will be opened
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+
 let g:vimtex_complete_close_braces = 1
 let g:vimtex_complete_recursive_bib = 1
-let g:vimtex_indent_enabled = 0
-let g:vimtex_latexmk_callback_hook = 'HookSkimUpdate'
+let g:vimtex_indent_enabled = 1
+let g:vimtex_fold_enabled = 1
+"set fillchars=fold:\,vert:| Suggested by vimtex docs, but gives an error.
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '-r @line @pdf'
 
-function! HookSkimUpdate(status)
-	if a:status
-		call system('/Users/matteo/dotvim/update_skim_pdf.sh ' . b:vimtex.tex)
+" This adds a callback hook that updates Skim after compilation
+let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
+function! UpdateSkim(status)
+	if !a:status | return | endif
+
+	let l:out = b:vimtex.out()
+	let l:cmd = [g:vimtex_view_general_viewer, '-r']
+	if !empty(system('pgrep Skim'))
+		call extend(l:cmd, ['-g'])
+	endif
+	if has('nvim')
+		call jobstart(l:cmd + [line('.'), l:out])
+	elseif has('job')
+		call job_start(l:cmd + [line('.'), l:out])
+	else
+		call system(join(l:cmd + [line('.'), shellescape(l:out)], ' '))
 	endif
 endfunction
-
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
