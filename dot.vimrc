@@ -155,6 +155,7 @@ let g:syntastic_tex_checkers = ['']
 let g:syntastic_disabled_filetypes = ['tex']
 
 let g:gitgutter_max_signs = 2048
+let g:signify_vcs_list = [ 'svn' ]
 
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
