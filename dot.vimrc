@@ -209,11 +209,10 @@ function! UpdateSkim(status)
 	if !a:status | return | endif
 
 	let l:out = b:vimtex.out()
-	"let l:tex = expand('%:p')
-	let l:tex = b:vimtex.tex
+	let l:tex = expand('%:p')
 	let l:cmd = [g:vimtex_view_general_viewer, '-r']
 	if !empty(system('pgrep Skim'))
-		call extend(l:cmd, ['-g', line('.'), l:out, l:tex])
+		call extend(l:cmd, ['-g'])
 	endif
 	if has('nvim')
 		call jobstart(l:cmd + [line('.'), l:out, l:tex])
