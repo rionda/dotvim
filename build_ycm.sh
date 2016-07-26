@@ -1,5 +1,5 @@
 #! /bin/sh
-CLANG_DYLIB=/opt/local/libexec/llvm-3.7/lib/libclang.dylib
+CLANG_DYLIB=/opt/local/libexec/llvm-3.8/lib/libclang.dylib
 PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
 PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Headers
 if [ ! -f ${CLANG_DYLIB} ]; then
@@ -19,8 +19,8 @@ if [ -d ycmd_build ]; then
 fi
 mkdir ycmd_build && \
 cd ycmd_build && \
-cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=${CLANG_DLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} .  ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
-cmake -DEXTERNAL_LIBCLANG_PATH=${CLANG_DLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} --build . --target ycm_core --config Release
+cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} .  ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
+cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DUSE_CLANG_COMPLETER=y -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} --build . --target ycm_core # --config Release
 #make ycm_support_libs && \
 make && \
 cd .. && \
