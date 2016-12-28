@@ -224,3 +224,5 @@ function! UpdateSkim(status)
 endfunction
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
+"
+nnoremap <F5> :GundoToggle<CR>
