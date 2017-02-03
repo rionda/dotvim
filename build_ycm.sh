@@ -14,13 +14,13 @@ if [ ! -d ${PYTHON_INCLUDE} ]; then
     echo "ERROR:" ${PYTHON_INCLUDE} " not found: update PYTHON_INCLUDE variable."
     exit 1
 fi
-#if [ -d ycmd_build ]; then
-#    rm -rf ycmd_build
-#fi
-mkdir ycmd_build && \
-cd ycmd_build && \
+if [ -d ycm_build ]; then
+   rm -rf ycm_build
+fi
+mkdir ycm_build && \
+cd ycm_build && \
 cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} .  ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
-cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DUSE_CLANG_COMPLETER=y -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} --build . --target ycm_core # --config Release
+cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DUSE_CLANG_COMPLETER=y -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} --build . --target ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp # --config Release
 #make ycm_support_libs && \
 make && \
 cd .. && \
