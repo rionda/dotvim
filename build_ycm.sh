@@ -24,4 +24,4 @@ cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_
 #make ycm_support_libs && \
 make && \
 cd .. && \
-rm -rf ycmd_build
+rm -rf ycm_build
