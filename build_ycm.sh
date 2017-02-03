@@ -14,9 +14,9 @@ if [ ! -d ${PYTHON_INCLUDE} ]; then
     echo "ERROR:" ${PYTHON_INCLUDE} " not found: update PYTHON_INCLUDE variable."
     exit 1
 fi
-if [ -d ycmd_build ]; then
-    rm -rf ycmd_build
-fi
+#if [ -d ycmd_build ]; then
+#    rm -rf ycmd_build
+#fi
 mkdir ycmd_build && \
 cd ycmd_build && \
 cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} .  ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \

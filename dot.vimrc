@@ -199,6 +199,7 @@ let g:vimtex_complete_close_braces = 1
 let g:vimtex_complete_recursive_bib = 1
 let g:vimtex_indent_enabled = 1
 let g:vimtex_fold_enabled = 1
+"let g:vimtex_latexmk_options = '-pdf -verbose -bibtex -file-line-error -synctex=1 --interaction=nonstopmode'
 "set fillchars=fold:\,vert:| Suggested by vimtex docs, but gives an error.
 let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
 let g:vimtex_view_general_options = '-r @line @pdf @tex'
