@@ -169,11 +169,15 @@ let g:tex_flavor = 'latex'
 "let g:Tex_ViewRule_pdf = 'Preview'"
 "let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'"
 
-let g:vimtex_quickfix_ignored_warnings = [
-\ 'Underfull',
-\ 'Overfull',
-\ 'specifier changed to',
-\ ]
+" This is now deprecated
+"let g:vimtex_quickfix_ignored_warnings = [
+"\ 'specifier changed to',
+"\ ]
+" Disable overfull/underfull \hbox
+let g:vimtex_quickfix_warnings = {
+		\ 'overfull' : 0,
+		\ 'underfull' : 0,
+		\}
 
 " LaTeX completion with YouCompleteMe. From the VimTeX docs
 if !exists('g:ycm_semantic_triggers')
