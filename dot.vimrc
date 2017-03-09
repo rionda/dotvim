@@ -135,6 +135,8 @@ autocmd filetype xhtml setlocal autoindent expandtab textwidth=80 tabstop=4 soft
 
 autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+set statusline+=%{fugitive#statusline()}
+
 " Suggested by syntastic README
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
