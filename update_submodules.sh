@@ -6,4 +6,4 @@ git commit -a -m "Sync submodules."
 git push
 
 ./build_command_t.sh
-./build_ycm.sh
+#./build_ycm.sh
