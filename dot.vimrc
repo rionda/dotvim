@@ -56,6 +56,8 @@ set incsearch     " show search matches as you type
 set textwidth=80  " textwidth is 80 columns
 set showcmd		  " Show number of selected lines (+ others)
 
+set clipboard=unnamed " On OSX, use the clipboard for cut and paste
+
 syntax on
 set background=dark
 if !has("gui_running")
