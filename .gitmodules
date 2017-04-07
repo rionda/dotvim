@@ -73,3 +73,6 @@
 [submodule "bundle/vim-eunuch"]
 	path = bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule "bundle/vim-cmake"]
+	path = bundle/vim-cmake
+	url = git://github.com/vhdirk/vim-cmake.git
