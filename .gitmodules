@@ -76,3 +76,6 @@
 [submodule "bundle/vim-cmake"]
 	path = bundle/vim-cmake
 	url = git://github.com/vhdirk/vim-cmake.git
+[submodule "bundle/vim-autotag"]
+	path = bundle/vim-autotag
+	url = git://github.com/craigemery/vim-autotag.git
