@@ -148,9 +148,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
 let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_python_python_exec = '/opt/local/bin/python3'
@@ -182,17 +179,6 @@ let g:vimtex_quickfix_warnings = {
 		\ 'overfull' : 0,
 		\ 'underfull' : 0,
 		\}
-
-" LaTeX completion with YouCompleteMe. From the VimTeX docs
-if !exists('g:ycm_semantic_triggers')
-let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-    \ 're!\\(include(only)?|input){[^}]*'
-    \ ]
 
 set foldmethod=syntax
 let g:tex_fold_enabled=1
@@ -232,6 +218,27 @@ function! UpdateSkim(status)
 		call system(join(l:cmd + [line('.'), shellescape(l:out), shellescape(l:tex)], ' '))
 	endif
 endfunction
+
+"let g:autotagCtagsCmd='ctags -a --fields=+l'
+
+" LaTeX completion with YouCompleteMe. From the VimTeX docs
+if !exists('g:ycm_semantic_triggers')
+let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\(include(only)?|input){[^}]*'
+    \ ]
+
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_python_binary_path = 'python3'
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
 "
