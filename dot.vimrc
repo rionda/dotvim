@@ -194,50 +194,27 @@ let g:vimtex_complete_close_braces = 1
 let g:vimtex_complete_recursive_bib = 1
 let g:vimtex_indent_enabled = 1
 let g:vimtex_fold_enabled = 1
-"let g:vimtex_latexmk_options = '-pdf -verbose -bibtex -file-line-error -synctex=1 --interaction=nonstopmode'
-"set fillchars=fold:\,vert:| Suggested by vimtex docs, but gives an error.
-let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_options = '-r @line @pdf @tex'
-
-" This adds a callback hook that updates Skim after compilation
-let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
-function! UpdateSkim(status)
-	if !a:status | return | endif
-
-	let l:out = b:vimtex.out()
-	let l:tex = expand('%:p')
-	let l:cmd = [g:vimtex_view_general_viewer, '-r']
-	if !empty(system('pgrep Skim'))
-		call extend(l:cmd, ['-g'])
-	endif
-	if has('nvim')
-		call jobstart(l:cmd + [line('.'), l:out, l:tex])
-	elseif has('job')
-		call job_start(l:cmd + [line('.'), l:out, l:tex])
-	else
-		call system(join(l:cmd + [line('.'), shellescape(l:out), shellescape(l:tex)], ' '))
-	endif
-endfunction
-
-"let g:autotagCtagsCmd='ctags -a --fields=+l'
+"Suggested by vimtex docs, but gives an error.
+"set fillcharsivert:|,fold:\
+let g:vimtex_view_method = 'skim'
 
 " LaTeX completion with YouCompleteMe. From the VimTeX docs
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = [
-      \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-      \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-      \ 're!\\hyperref\[[^]]*',
-      \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-      \ 're!\\(include(only)?|input){[^}]*',
-      \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-      \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\[A-Za-z]*',
-      \ ]
+    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+    \ 're!\\hyperref\[[^]]*',
+    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\(include(only)?|input){[^}]*',
+    \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+    \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+    \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+    \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
+    \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
+    \ 're!\\[A-Za-z]*',
+    \ ]
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -254,5 +231,7 @@ let g:ycm_python_binary_path = 'python3'
 let g:UltiSnipsExpandTrigger="<c-z>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+"let g:autotagCtagsCmd='ctags -a --fields=+l'
 
 nnoremap <F5> :GundoToggle<CR>
