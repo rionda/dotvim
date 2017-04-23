@@ -61,7 +61,7 @@ set showcmd		  " Show number of selected lines (+ others)
 syntax on
 set background=dark
 if !has("gui_running")
-	let g:solarized_termtrans=1
+    let g:solarized_termtrans=1
 endif
 colorscheme solarized
 
@@ -176,9 +176,9 @@ let g:tex_flavor = 'latex'
 "\ ]
 " Disable overfull/underfull \hbox
 let g:vimtex_quickfix_warnings = {
-		\ 'overfull' : 0,
-		\ 'underfull' : 0,
-		\}
+    \  'overfull' : 0,
+    \ 'underfull' : 0,
+\}
 
 set foldmethod=syntax
 let g:tex_fold_enabled=1
@@ -200,7 +200,7 @@ let g:vimtex_view_method = 'skim'
 
 " LaTeX completion with YouCompleteMe. From the VimTeX docs
 if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
+    let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = [
     \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
