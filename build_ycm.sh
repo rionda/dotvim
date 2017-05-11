@@ -1,5 +1,5 @@
 #! /bin/sh
-CLANG_DYLIB=/opt/local/libexec/llvm-3.9/lib/libclang.dylib
+CLANG_DYLIB=/opt/local/libexec/llvm-4.0/lib/libclang.dylib
 PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
 PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Headers
 if [ ! -f ${CLANG_DYLIB} ]; then
