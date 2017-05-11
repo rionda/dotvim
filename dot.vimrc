@@ -126,7 +126,7 @@ autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 sof
 
 autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
+autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 keywordprg=cppman
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 au BufNewFile,BufRead crontab.* set nobackup nowritebackup
