@@ -98,5 +98,5 @@
 	path = bundle/snipmate-snippets-bib
 	url = https://github.com/rbonvall/snipmate-snippets-bib.git
 [submodule "buindle/Conque-Shell"]
-	path = buindle/Conque-Shell
+	path = bundle/Conque-Shell
 	url = https://github.com/jewes/Conque-Shell.git

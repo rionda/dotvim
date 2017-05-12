@@ -234,4 +234,21 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 "let g:autotagCtagsCmd='ctags -a --fields=+l'
 
+
+" from https://superuser.com/questions/290072/macvim-k-not-working-correctly-warning-terminal-is-not-fully-functional/527607
+:function! ConqueMan()
+    let cmd = &keywordprg . ' '
+    if cmd ==# 'man ' || cmd ==# 'man -s '
+        if v:count > 0
+            let cmd .= v:count . ' '
+        else
+            let cmd = 'man '
+        endif
+    endif
+    let cmd .= expand('<cword>')
+    execute 'ConqueTermSplit' cmd
+:endfunction
+:map K :<C-U>call ConqueMan()<CR>
+:ounmap K
+
 nnoremap <F5> :GundoToggle<CR>
