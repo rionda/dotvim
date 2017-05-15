@@ -252,3 +252,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 :ounmap K
 
 nnoremap <F5> :GundoToggle<CR>
+
+let g:ConqueTerm_PyVersion = 3
+let g:ConqueTerm_FastMode = 0
