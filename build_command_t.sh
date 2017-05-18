@@ -2,4 +2,8 @@
 
 cd bundle/command-t/ruby/command-t
 ruby extconf.rb
-make
+if [ `uname` = "FreeBSD" ]; then
+    gmake
+else
+    make
+fi
