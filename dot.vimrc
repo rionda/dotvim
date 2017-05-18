@@ -21,6 +21,7 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set nobackup			 " no backup files (different from no swapfiles!)
 "set noswapfile			 " no swap files (you don't want it for remote connections
+set swapsync=''			 " don't force fsync of swapfiles after every write.
 set directory=$HOME/.vim/swapfiles/ " directory for swapfiles
 
 let mapleader = ','		" use ',' as the leader
