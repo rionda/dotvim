@@ -225,7 +225,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 "let g:ycm_seed_identifiers_with_syntax = 1
 if has("unix")
     let s:uname = system("uname -s")
-    if s:uname == "Darwin"
+    if s:uname == "Darwin\n"
         let g:ycm_python_binary_path = '/opt/local/bin/python3'
         let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
     endif
