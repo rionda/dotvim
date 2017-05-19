@@ -1,9 +1,10 @@
 #! /bin/sh
-if [ `uname` = "FreeBSD" ]; then
+UNAME=`uname`
+if [ ${UNAME} = "FreeBSD" ]; then
     cd bundle/YouCompleteMe && \
     python2 ./install.py --clang-completer --system-libclang \
     --system-boost
-elif [ `uname` = "Dariwn" ]; then
+elif [ ${UNAME} = "Dariwn" ]; then
     CLANG_DYLIB=/opt/local/libexec/llvm-4.0/lib/libclang.dylib
     PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6.dylib
     PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/3.6/Headers
@@ -30,6 +31,9 @@ elif [ `uname` = "Dariwn" ]; then
     make && \
     cd .. && \
     rm -rf ycm_build
+elif [ ${UNAME} = "Linux" ]; then
+    cd bundle/YouCompleteMe && \
+    python2 ./install.py --clang-completer
 else
     echo "Fix $0 to build on you OS." >&2
     exit 1
