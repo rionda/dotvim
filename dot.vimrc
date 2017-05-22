@@ -149,9 +149,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_python_python_exec = '/opt/local/bin/python3'
+let g:syntastic_cpp_compiler_options = ' -std=c++14'
+if has("unix")
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin\n"
+		let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
+		let g:syntastic_python_python_exec = '/opt/local/bin/python3'
+	endif
+endif
 let g:syntastic_python_checkers = ['flake8'] "flake8 can be installed via pip3
 " We have a different plugin for tex
 let g:syntastic_tex_checkers = ['']
@@ -197,7 +202,12 @@ let g:vimtex_indent_enabled = 1
 let g:vimtex_fold_enabled = 1
 "Suggested by vimtex docs, but gives an error.
 "set fillcharsivert:|,fold:\
-let g:vimtex_view_method = 'skim'
+if has("unix")
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin\n"
+		let g:vimtex_view_method = 'skim'
+	endif
+endif
 
 " LaTeX completion with YouCompleteMe. From the VimTeX docs
 if !exists('g:ycm_semantic_triggers')
