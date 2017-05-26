@@ -25,7 +25,7 @@ set swapsync=''			 " don't force fsync of swapfiles after every write.
 set directory=$HOME/.vim/swapfiles/ " directory for swapfiles
 
 let mapleader = ','		" use ',' as the leader
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.toc,*.smn,*.nav,*.fdb_latex,*.fls,*.synctex.gz
 set colorcolumn=+1		 " highlight the column after textwidth
 set title                " change the terminal's title
 set visualbell           " don't beep
