@@ -173,13 +173,7 @@ let g:indent_guides_guide_size=1
 " " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor = 'latex'
-"let g:Tex_ViewRule_pdf = 'Preview'"
-"let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'"
 
-" This is now deprecated
-"let g:vimtex_quickfix_ignored_warnings = [
-"\ 'specifier changed to',
-"\ ]
 " Disable overfull/underfull \hbox
 let g:vimtex_quickfix_warnings = {
     \  'overfull' : 0,
