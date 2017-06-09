@@ -1,6 +1,6 @@
 #! /bin/sh
 
-cd bundle/command-t/ruby/command-t
+cd bundle/command-t/ruby/command-t/ext/command-t
 ruby extconf.rb
 if [ `uname` = "FreeBSD" ]; then
     gmake
