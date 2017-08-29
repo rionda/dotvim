@@ -56,9 +56,11 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set textwidth=80  " textwidth is 80 columns
 set showcmd		  " Show number of selected lines (+ others)
-set mouse=a		  " Activate the mouse
 set splitright    " Open new vertical splits to the right
 set splitbelow    " Open new horizontal splits on the bottom
+set ttyfast		  " Fast terminal connection
+set lazyredraw	  " Do not redraw while executing background macros and commands
+set mouse=a		  " Activate the mouse
 
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste
 
