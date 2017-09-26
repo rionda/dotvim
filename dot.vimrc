@@ -58,6 +58,7 @@ set textwidth=80  " textwidth is 80 columns
 set showcmd		  " Show number of selected lines (+ others)
 set splitright    " Open new vertical splits to the right
 set splitbelow    " Open new horizontal splits on the bottom
+set switchbuf=usetab "When switching between buffers, consider tabs in all windows. Suggested by command-t
 set ttyfast		  " Fast terminal connection
 set lazyredraw	  " Do not redraw while executing background macros and commands
 set mouse=a		  " Activate the mouse
