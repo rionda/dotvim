@@ -32,6 +32,7 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set mousehide   " hide mouse pointer while typing
 set autowrite "saves on certain actions, like make
+set autoread			 " check for changes outside of vim
 set laststatus=2 "always show status
 "set nomodeline " ignore modelines at the beggining of files (for the sake of security)
 set printoptions=paper:letter
