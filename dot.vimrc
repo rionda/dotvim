@@ -22,7 +22,7 @@ set undolevels=1000      " use many muchos levels of undo
 set nobackup			 " no backup files (different from no swapfiles!)
 "set noswapfile			 " no swap files (you don't want it for remote connections
 set swapsync=''			 " don't force fsync of swapfiles after every write.
-set directory=$HOME/.vim/swapfiles/ " directory for swapfiles
+set directory=$HOME/.vim/swapfiles// " directory for swapfiles. The double slash enables unique swap filenames.
 
 let mapleader = ','		" use ',' as the leader
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.toc,*.smn,*.nav,*.fdb_latex,*.fls,*.synctex.gz
@@ -63,6 +63,9 @@ set switchbuf=usetab "When switching between buffers, consider tabs in all windo
 set ttyfast		  " Fast terminal connection
 set lazyredraw	  " Do not redraw while executing background macros and commands
 set mouse=a		  " Activate the mouse
+
+" Highlight line number of where cursor currently is
+hi CursorLineNr guifg=#050505
 
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste
 
