@@ -48,11 +48,11 @@ set tabstop=4     " interpret \t as having a width of 4 spaces
 set shiftwidth=4  " set auto-indents to have a width of 4
 set softtabstop=4 " set the number of columns for a TAB
 set smarttab      " insert tabs on the start of a line according to
-                  "    shiftwidth, not tabstop
+					" shiftwidth, not tabstop
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
-                  "    case-sensitive otherwise
+					" case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set textwidth=80  " textwidth is 80 columns
@@ -72,7 +72,7 @@ hi CursorLineNr guifg=#050505
 syntax on
 set background=dark
 if !has("gui_running")
-    let g:solarized_termtrans=1
+	let g:solarized_termtrans=1
 endif
 colorscheme solarized
 
@@ -161,8 +161,8 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_cpp_compiler_options = ' -std=c++14'
 if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
+	let s:uname = system("uname -s")
+	if s:uname == "Darwin\n"
 		let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
 		let g:syntastic_python_python_exec = '/opt/local/bin/python3'
 	endif
@@ -186,9 +186,9 @@ let g:tex_flavor = 'latex'
 
 " Disable overfull/underfull \hbox
 let g:vimtex_quickfix_warnings = {
-    \  'overfull' : 0,
-    \ 'underfull' : 0,
-\}
+			\  'overfull' : 0,
+			\ 'underfull' : 0,
+			\}
 
 set foldmethod=syntax
 let g:tex_fold_enabled=1
@@ -207,29 +207,29 @@ let g:vimtex_fold_enabled = 1
 "Suggested by vimtex docs, but gives an error.
 "set fillcharsivert:|,fold:\
 if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
+	let s:uname = system("uname -s")
+	if s:uname == "Darwin\n"
 		let g:vimtex_view_method = 'skim'
 	endif
 endif
 
 " LaTeX completion with YouCompleteMe. From the VimTeX docs
 if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
+	let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = [
-    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-    \ 're!\\hyperref\[[^]]*',
-    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-    \ 're!\\(include(only)?|input){[^}]*',
-    \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-    \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-    \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-    \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
-    \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
-    \ 're!\\[A-Za-z]*',
-    \ ]
+			\ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+			\ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+			\ 're!\\hyperref\[[^]]*',
+			\ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+			\ 're!\\(include(only)?|input){[^}]*',
+			\ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+			\ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+			\ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+			\ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
+			\ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
+			\ 're!\\[A-Za-z]*',
+			\ ]
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -238,11 +238,11 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 "let g:ycm_seed_identifiers_with_syntax = 1
 if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-        let g:ycm_python_binary_path = '/opt/local/bin/python3'
-        let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
-    endif
+	let s:uname = system("uname -s")
+	if s:uname == "Darwin\n"
+		let g:ycm_python_binary_path = '/opt/local/bin/python3'
+		let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
+	endif
 endif
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
@@ -258,16 +258,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " from https://superuser.com/questions/290072/macvim-k-not-working-correctly-warning-terminal-is-not-fully-functional/527607
 :function! ConqueMan()
-    let cmd = &keywordprg . ' '
-    if cmd ==# 'man ' || cmd ==# 'man -s '
-        if v:count > 0
-            let cmd .= v:count . ' '
-        else
-            let cmd = 'man '
-        endif
-    endif
-    let cmd .= expand('<cword>')
-    execute 'ConqueTermSplit' cmd
+let cmd = &keywordprg . ' '
+if cmd ==# 'man ' || cmd ==# 'man -s '
+	if v:count > 0
+		let cmd .= v:count . ' '
+	else
+		let cmd = 'man '
+	endif
+endif
+let cmd .= expand('<cword>')
+execute 'ConqueTermSplit' cmd
 :endfunction
 :map K :<C-U>call ConqueMan()<CR>
 :ounmap K
