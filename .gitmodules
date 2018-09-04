@@ -103,3 +103,6 @@
 [submodule "bundle/vim-dispatch"]
 	path = bundle/vim-dispatch
 	url = git://github.com/tpope/vim-dispatch.git
+[submodule "bundle/vim-jekyll"]
+	path = bundle/vim-jekyll
+	url = https://github.com/parkr/vim-jekyll.git
