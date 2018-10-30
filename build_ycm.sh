@@ -2,12 +2,12 @@
 UNAME=`uname`
 if [ ${UNAME} = "FreeBSD" ]; then
     cd bundle/YouCompleteMe && \
-    env LD_LIBRARY_PATH=/usr/local/llvm60/lib python3.6 ./install.py \
+    env LD_LIBRARY_PATH=/usr/local/llvm60/lib python3.7 ./install.py \
     --clang-tidy --clang-completer --system-libclang --system-boost
 elif [ ${UNAME} = "Darwin" ]; then
     CLANG_DYLIB=/opt/local/libexec/llvm-6.0/lib/libclang.dylib
-    PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6.dylib
-    PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/3.6/Headers
+    PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib
+    PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/Headers
     if [ ! -f ${CLANG_DYLIB} ]; then
         echo "ERROR:" ${CLANG_DYLIB} " not found: update CLANG_DYLIB variable."
         exit 1
