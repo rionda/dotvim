@@ -33,7 +33,7 @@ elif [ ${UNAME} = "Darwin" ]; then
     rm -rf ycm_build
 elif [ ${UNAME} = "Linux" ]; then
     cd bundle/YouCompleteMe && \
-    python2 ./install.py --clang-completer --clang-tidy 
+    python2 ./install.py --clang-completer --clang-tidy
 else
     echo "Fix $0 to build on you OS." >&2
     exit 1
