@@ -159,7 +159,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_cpp_compiler_options = ' -std=c++14'
+let g:syntastic_cpp_compiler_options = ' -std=c++17'
 if has("unix")
 	let s:uname = system("uname -s")
 	if s:uname == "Darwin\n"
