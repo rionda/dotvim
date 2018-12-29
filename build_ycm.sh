@@ -26,14 +26,15 @@ elif [ ${UNAME} = "Darwin" ]; then
     mkdir ycm_build && \
     cd ycm_build && \
     cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DUSE_CLANG_TIDY=On -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DUSE_PYTHON2=OFF -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
-    cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DUSE_PYTHON2=OFF -DUSE_CLANG_COMPLETER=y -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} --build . --target ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \ # --config Release
+    cmake --build . --target ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
     make && \
     cd .. && \
     rm -rf ycm_build && \
     mkdir regex_build && \
     cd regex_build && \
-    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang . ~/dotvim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex && \
-    cmake --build . --target _regex && \
+    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex && \
+    cmake --build . --target ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex && \
+    make && \
     cd .. && \
     rm -rf regex_build
 elif [ ${UNAME} = "Linux" ]; then
