@@ -25,7 +25,7 @@ set swapsync=''			 " don't force fsync of swapfiles after every write.
 set directory=$HOME/.vim/swapfiles// " directory for swapfiles. The double slash enables unique swap filenames.
 
 let mapleader = ','		" use ',' as the leader
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.toc,*.smn,*.nav,*.fdb_latex,*.fls,*.synctex.gz,*.blg,*.bcf,*.pdf
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.toc,*.smn,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif
 set colorcolumn=+1		 " highlight the column after textwidth
 set title                " change the terminal's title
 set visualbell           " don't beep
@@ -138,6 +138,8 @@ autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 sof
 autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 keywordprg=cppman
+
+autocmd FileType java setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 au BufNewFile,BufRead crontab.* set nobackup nowritebackup
