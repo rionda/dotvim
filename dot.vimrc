@@ -214,6 +214,9 @@ if has("unix")
 		let g:vimtex_view_method = 'skim'
 	endif
 endif
+" Concealment of LaTeX code
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " LaTeX completion with YouCompleteMe. From the VimTeX docs
 if !exists('g:ycm_semantic_triggers')
