@@ -25,7 +25,7 @@ set swapsync=''			 " don't force fsync of swapfiles after every write.
 set directory=$HOME/.vim/swapfiles// " directory for swapfiles. The double slash enables unique swap filenames.
 
 let mapleader = ','		" use ',' as the leader
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.toc,*.smn,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif,*.zip,*.rar,*.tgz,*.tbz,*.docx,*.odp,*.pptx
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.aux,*.toc,*.snm,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif,*.zip,*.rar,*.tgz,*.tbz,*.docx,*.odp,*.pptx
 set colorcolumn=+1		 " highlight the column after textwidth
 set title                " change the terminal's title
 set visualbell           " don't beep
