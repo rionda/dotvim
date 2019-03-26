@@ -173,8 +173,9 @@ if has("unix")
 endif
 let g:syntastic_python_checkers = ['flake8'] "flake8 can be installed via pip3
 " We have a different plugin for tex
-let g:syntastic_tex_checkers = ['']
+"let g:syntastic_tex_checkers = ['']
 let g:syntastic_disabled_filetypes = ['tex']
+let g:syntastic_filetype_map = { "plaintex": "tex", }
 
 let g:gitgutter_max_signs = 2048
 let g:signify_vcs_list = [ 'svn' ]
