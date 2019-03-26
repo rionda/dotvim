@@ -36,7 +36,9 @@ set autoread			 " check for changes outside of vim
 set laststatus=2 "always show status
 "set nomodeline " ignore modelines at the beggining of files (for the sake of security)
 set printoptions=paper:letter
-set spell
+setlocal spell
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u " Use <Ctrl+l> to autofix the most recent typo.
 "set nowrap        " don't wrap lines
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set ruler		  " show the ruler
