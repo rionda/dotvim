@@ -14,13 +14,13 @@ call pathogen#helptags()
 
 " Hide files instead of closing them. You can have unwritten changes to a file
 " and open a new file using :e, without being forced to write or undo your
-" changes firs
+" changes first
 set hidden
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set nobackup			 " no backup files (different from no swapfiles!)
-"set noswapfile			 " no swap files (you don't want it for remote connections
+"set noswapfile			 " no swap files (you don't want it for remote connections)
 set swapsync=''			 " don't force fsync of swapfiles after every write.
 set directory=$HOME/.vim/swapfiles// " directory for swapfiles. The double slash enables unique swap filenames.
 
