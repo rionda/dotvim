@@ -36,6 +36,7 @@ set autoread			 " check for changes outside of vim
 set laststatus=2 "always show status
 "set nomodeline " ignore modelines at the beggining of files (for the sake of security)
 set printoptions=paper:letter
+"set printexpr=system('open -a Preview '.v:fname_in) + v:shell_error
 setlocal spell
 set spelllang=en_us
 let g:tex_comment_nospell=1 " don't spellcheck in latex comments
