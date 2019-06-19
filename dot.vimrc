@@ -244,9 +244,12 @@ if has("unix")
 		let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
 	endif
 endif
+:function! DisableYCMIdCompl()
+	let g:ycm_min_num_of_chars_for_completion=1000
+	:YcmRestartServer
+:endfunction
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
-
 
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-z>"
