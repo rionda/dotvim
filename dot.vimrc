@@ -230,20 +230,7 @@ let g:tex_conceal='abdmg'
 if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.tex = [
-			\ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-			\ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-			\ 're!\\hyperref\[[^]]*',
-			\ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-			\ 're!\\(include(only)?|input){[^}]*',
-			\ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-			\ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-			\ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-			\ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
-			\ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
-			\ 're!\\[A-Za-z]*',
-			\ ]
-
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
