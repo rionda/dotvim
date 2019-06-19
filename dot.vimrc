@@ -42,6 +42,8 @@ set spelllang=en_us
 let g:tex_comment_nospell=1 " don't spellcheck in latex comments
 let g:tex_verbspell=0 " don't spellcheck in latex verbatim environment
 
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u "press Ctrl-l while typing to fix the previous mistake
+
 "set nowrap        " don't wrap lines
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set ruler		  " show the ruler
