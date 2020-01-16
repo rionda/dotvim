@@ -75,18 +75,19 @@ set mouse=a		  " Activate the mouse
 hi CursorLineNr guifg=#050505
 
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste
+"
+" Let vim determine the file type to be edited.
+filetype plugin on
+filetype indent on
+set autoindent
 
 syntax on
+
 set background=dark
 if !has("gui_running")
 	let g:solarized_termtrans=1
 endif
 colorscheme solarized
-
-" Let vim determine the file type to be edited.
-filetype plugin on
-filetype indent on
-set autoindent
 
 autocmd BufEnter * silent! lcd %:p:h
 
