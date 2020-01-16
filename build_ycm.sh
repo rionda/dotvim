@@ -5,9 +5,9 @@ if [ ${UNAME} = "FreeBSD" ]; then
     env LD_LIBRARY_PATH=/usr/local/llvm70/lib python3.6 ./install.py \
     --clang-tidy --clang-completer --system-libclang --system-boost
 elif [ ${UNAME} = "Darwin" ]; then
-    CLANG_DYLIB=/opt/local/libexec/llvm-7.0/lib/libclang.dylib
-    PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib
-    PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/Headers
+    CLANG_DYLIB=/opt/local/libexec/llvm-9.0/lib/libclang.dylib
+    PYTHON_DYLIB=/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/libpython3.8.dylib
+    PYTHON_INCLUDE=/opt/local/Library/Frameworks/Python.framework/Versions/3.8/Headers
     if [ ! -f ${CLANG_DYLIB} ]; then
         echo "ERROR:" ${CLANG_DYLIB} " not found: update CLANG_DYLIB variable."
         exit 1
