@@ -106,3 +106,6 @@
 [submodule "bundle/vim-jekyll"]
 	path = bundle/vim-jekyll
 	url = https://github.com/parkr/vim-jekyll.git
+[submodule "bundle/vim-solarized8"]
+	path = bundle/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
