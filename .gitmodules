@@ -8,7 +8,7 @@
 	path = bundle/vim-plugin-minibufexpl
 	url = git://github.com/weynhamz/vim-plugin-minibufexpl
 [submodule "bundle/vim-airline"]
-	path = pack/matteo/start/vim-airline
+	path = pack/matteo/start/airline
 	url = git://github.com/bling/vim-airline
 [submodule "bundle/vim-colors-solarized"]
 	path = pack/matteo/opt/vim-colors-solarized
@@ -38,16 +38,16 @@
 	path = pack/matteo/start/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "bundle/vim-signify"]
-	path = pack/matteo/start/vim-signify
+	path = pack/matteo/start/signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule "bundle/YankRing"]
 	path = pack/matteo/start/YankRing
 	url = https://github.com/vim-scripts/YankRing.vim.git
 [submodule "bundle/vim-sensible"]
-	path = pack/matteo/start/vim-sensible
+	path = pack/matteo/start/sensible
 	url = git://github.com/tpope/vim-sensible.git
 [submodule "bundle/vim-eunuch"]
-	path = pack/matteo/start/vim-eunuch
+	path = pack/matteo/start/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "bundle/vim-cmake"]
 	path = pack/matteo/start/vim-cmake
@@ -59,7 +59,7 @@
 	path = bundle.old/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/vim-dispatch"]
-	path = pack/matteo/start/vim-dispatch
+	path = pack/matteo/start/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
 [submodule "bundle/vim-solarized8"]
 	path = pack/matteo/opt/solarized8
