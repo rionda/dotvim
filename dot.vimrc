@@ -171,27 +171,29 @@ autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softta
 set statusline+=%{fugitive#statusline()}
 
 " Suggested by syntastic README
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_cpp_compiler_options = ' -std=c++17'
+"if has("unix")
+"    let s:uname = system("uname -s")
+"    if s:uname == "Darwin\n"
+"        let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
+"        let g:syntastic_python_python_exec = '/opt/local/bin/python3'
+"    endif
+"endif
+"let g:syntastic_python_checkers = ['flake8'] "flake8 can be installed via pip3
+"" We have a different plugin for tex
+""let g:syntastic_tex_checkers = ['']
+"let g:syntastic_disabled_filetypes = ['tex']
+"let g:syntastic_filetype_map = { "plaintex": "tex", }
 
-let g:syntastic_cpp_compiler_options = ' -std=c++17'
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-        let g:syntastic_cpp_compiler = '/opt/local/bin/g++'
-        let g:syntastic_python_python_exec = '/opt/local/bin/python3'
-    endif
-endif
-let g:syntastic_python_checkers = ['flake8'] "flake8 can be installed via pip3
-" We have a different plugin for tex
-"let g:syntastic_tex_checkers = ['']
-let g:syntastic_disabled_filetypes = ['tex']
-let g:syntastic_filetype_map = { "plaintex": "tex", }
+let g:ale_open_list = 1 " Make ALE automatically open a window for the location list.
+
 
 let g:gitgutter_max_signs = 2048
 let g:signify_vcs_list = [ 'svn' ]
@@ -201,7 +203,7 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" " 'plaintex' instead of 'tex', which results in vimtex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor = 'latex'
 
@@ -241,7 +243,7 @@ let g:tex_conceal='abdmg'
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
@@ -263,10 +265,8 @@ endif
 "let g:ycm_server_log_level = 'debug'
 
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-z>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-"let g:autotagCtagsCmd='ctags -a --fields=+l'
+"let g:UltiSnipsExpandTrigger="<c-z>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 nnoremap <F5> :GundoToggle<CR>
