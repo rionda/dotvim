@@ -10,9 +10,6 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = pack/matteo/opt/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized
-[submodule "bundle/vim-gitgutter"]
-	path = pack/matteo/start/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter
 [submodule "bundle/vimtex"]
 	path = pack/matteo/start/vimtex
 	url = git://github.com/lervag/vimtex
@@ -31,9 +28,6 @@
 [submodule "bundle/FoldText"]
 	path = bundle.old/FoldText
 	url = https://github.com/Konfekt/FoldText.git
-[submodule "bundle/command-t"]
-	path = pack/matteo/start/command-t
-	url = https://github.com/wincent/command-t.git
 [submodule "bundle/vim-signify"]
 	path = pack/matteo/start/signify
 	url = https://github.com/mhinz/vim-signify.git
@@ -64,3 +58,6 @@
 [submodule "pack/matteo/start/ale"]
 	path = pack/matteo/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule "pack/matteo/start/ctrlp.vim"]
+	path = pack/matteo/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git

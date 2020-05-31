@@ -13,7 +13,5 @@ echo "## Syncing submodules recursively" &&  \
 git submodule sync --recursive && \
 echo "## Updating submodules recursively" &&  \
 git submodule update --init --recursive && \
-echo "## Building command-t" &&  \
-./build_command_t.sh && \
 echo "## Building YCM" &&  \
 ./build_ycm.sh
