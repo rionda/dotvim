@@ -1,111 +1,66 @@
 [submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
+	path = pack/matteo/start/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim~
-	url = git://github.com/davidhalter/jedi-vim.git
-[submodule "bundle/python-syntax"]
-	path = bundle/python-syntax
-	url = git://github.com/hdima/python-syntax
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
+	path = pack/matteo/start/syntastic
 	url = git://github.com/scrooloose/syntastic
 [submodule "bundle/vim-plugin-minibufexpl"]
 	path = bundle/vim-plugin-minibufexpl
 	url = git://github.com/weynhamz/vim-plugin-minibufexpl
 [submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
+	path = pack/matteo/start/vim-airline
 	url = git://github.com/bling/vim-airline
 [submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
+	path = pack/matteo/opt/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized
-[submodule "bundle/vim-flake8"]
-	path = bundle/vim-flake8
-	url = git://github.com/nvie/vim-flake8
 [submodule "bundle/vim-gitgutter"]
-	path = bundle/vim-gitgutter
+	path = pack/matteo/start/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter
 [submodule "bundle/vimtex"]
-	path = bundle/vimtex
+	path = pack/matteo/start/vimtex
 	url = git://github.com/lervag/vimtex
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = git://github.com/plasticboy/vim-markdown
-[submodule "bundle/vim-scala"]
-	path = bundle/vim-scala
-	url = git://github.com/derekwyatt/vim-scala
 [submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
+	path = pack/matteo/start/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/vim-trailing-whitespace"]
-	path = bundle/vim-trailing-whitespace
+	path = pack/matteo/start/vim-trailing-whitespace
 	url = https://github.com/bronson/vim-trailing-whitespace.git
 [submodule "bundle/vim-indent-guides"]
-	path = bundle/vim-indent-guides
+	path = pack/matteo/start/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "bundle/vim-git"]
-	path = bundle/vim-git
-	url = git://github.com/tpope/vim-git.git
 [submodule "bundle/FastFold"]
-	path = bundle/FastFold
+	path = bundle.old/FastFold
 	url = https://github.com/Konfekt/FastFold.git
 [submodule "bundle/FoldText"]
-	path = bundle/FoldText
+	path = bundle.old/FoldText
 	url = https://github.com/Konfekt/FoldText.git
 [submodule "bundle/command-t"]
-	path = bundle/command-t
+	path = pack/matteo/start/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "bundle/vim-signify"]
-	path = bundle/vim-signify
+	path = pack/matteo/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "bundle/YankRing"]
-	path = bundle/YankRing
+	path = pack/matteo/start/YankRing
 	url = https://github.com/vim-scripts/YankRing.vim.git
 [submodule "bundle/vim-sensible"]
-	path = bundle/vim-sensible
+	path = pack/matteo/start/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
 [submodule "bundle/vim-eunuch"]
-	path = bundle/vim-eunuch
+	path = pack/matteo/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "bundle/vim-cmake"]
-	path = bundle/vim-cmake
+	path = pack/matteo/start/vim-cmake
 	url = git://github.com/vhdirk/vim-cmake.git
-[submodule "bundle/vim-autotag"]
-	path = bundle/vim-autotag
-	url = git://github.com/craigemery/vim-autotag.git
-[submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
-[submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 [submodule "bundle/tlib_vim"]
-	path = bundle/tlib_vim
+	path = bundle.old/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule "vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
+	path = bundle.old/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim-snipmate"]
-	path = bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-[submodule "bundle/snipmate-snippets-bib"]
-	path = bundle/snipmate-snippets-bib
-	url = https://github.com/rbonvall/snipmate-snippets-bib.git
-[submodule "buindle/Conque-Shell"]
-	path = bundle/Conque-Shell
-	url = https://github.com/jewes/Conque-Shell.git
 [submodule "bundle/vim-dispatch"]
-	path = bundle/vim-dispatch
+	path = pack/matteo/start/vim-dispatch
 	url = git://github.com/tpope/vim-dispatch.git
-[submodule "bundle/vim-jekyll"]
-	path = bundle/vim-jekyll
-	url = https://github.com/parkr/vim-jekyll.git
 [submodule "bundle/vim-solarized8"]
-	path = bundle/vim-solarized8
+	path = pack/matteo/opt/solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git

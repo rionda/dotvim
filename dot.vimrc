@@ -1,16 +1,16 @@
 " To disable a plugin, add it's bundle name to the following list
 " XXX It doesn't seem to work...
-let g:pathogen_disabled = []
+"let g:pathogen_disabled = []
 "call add(g:pathogen_disabled, 'vim-plugin-minbufexpl')
 " This is always first because we have pathogen in bundle/
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 " This must be first, because it changes other options as side effect
 set nocompatible
 
 " Call pathogen to make it easy to install plugins under ~/.vim/bundle
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
 
 " Hide files instead of closing them. You can have unwritten changes to a file
 " and open a new file using :e, without being forced to write or undo your
@@ -21,6 +21,7 @@ set undolevels=1000      " use many muchos levels of undo
 set nobackup             " no backup files (different from no swapfiles!)
 "set noswapfile          " no swap files (you don't want it for remote connections)
 set swapsync=''          " don't force fsync of swapfiles after every write.
+set updatetime=100       " write the swapfile every 100ms. Suggested by vim-signify
 set directory=$HOME/.vim/swapfiles// " directory for swapfiles. The double slash
                          " enables unique swap filenames.
 set autowrite            " saves on certain actions, like make
@@ -28,7 +29,10 @@ set autoread             " check for changes outside of vim
 
 let mapleader = ','      " use ',' as the leader
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.synctex*,*.aux,*.toc,*.snm,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif,*.zip,*.rar,*.tgz,*.tbz,*.docx,*.odp,*.pptx,*.dSYM
-set colorcolumn=+1         " highlight the column after textwidth
+set colorcolumn=+1       " highlight the column after textwidth
+set termguicolors		 " To have true colors
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
@@ -265,24 +269,4 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 "let g:autotagCtagsCmd='ctags -a --fields=+l'
 
-
-" from https://superuser.com/questions/290072/macvim-k-not-working-correctly-warning-terminal-is-not-fully-functional/527607
-:function! ConqueMan()
-let cmd = &keywordprg . ' '
-if cmd ==# 'man ' || cmd ==# 'man -s '
-    if v:count > 0
-        let cmd .= v:count . ' '
-    else
-        let cmd = 'man '
-    endif
-endif
-let cmd .= expand('<cword>')
-execute 'ConqueTermSplit' cmd
-:endfunction
-:map K :<C-U>call ConqueMan()<CR>
-:ounmap K
-
 nnoremap <F5> :GundoToggle<CR>
-
-let g:ConqueTerm_PyVersion = 3
-let g:ConqueTerm_FastMode = 0
