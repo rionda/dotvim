@@ -246,4 +246,6 @@ endif
 let g:ctrlp_map = '<leader>b'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 
+nmap <leader>t	:terminal<CR>
+
 nnoremap <F5> :GundoToggle<CR>
