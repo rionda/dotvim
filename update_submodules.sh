@@ -6,7 +6,7 @@ git submodule sync && \
 echo "## Updating/Initing and merging submodules from their remote" &&  \
 git submodule update --init --remote --merge && \
 echo "## Committing update " &&  \
-git commit --no-gpg-sign bundle -m "Sync submodules." && \
+git commit --no-gpg-sign pack/matteo/ -m "Sync submodules." && \
 echo "## Pushing " &&  \
 git push && \
 echo "## Syncing submodules recursively" &&  \
