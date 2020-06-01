@@ -1,7 +1,7 @@
 #! /bin/sh
 UNAME=`uname`
 if [ ${UNAME} = "FreeBSD" ]; then
-    cd bundle/YouCompleteMe && \
+    cd pack/matteo/start/YouCompleteMe && \
     env LD_LIBRARY_PATH=/usr/local/llvm70/lib python3.6 ./install.py \
     --clang-tidy --clang-completer --system-libclang --system-boost
 elif [ ${UNAME} = "Darwin" ]; then
@@ -25,18 +25,18 @@ elif [ ${UNAME} = "Darwin" ]; then
     fi
     mkdir ycm_build && \
     cd ycm_build && \
-    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DUSE_CLANG_TIDY=On -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp && \
+    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DUSE_CLANG_TIDY=On -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPYTHON_LIBRARY=${PYTHON_DYLIB} -DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE} . ~/.vim/pack/matteo/start/YouCompleteMe/third_party/ycmd/cpp && \
     cmake --build . --target ycm_core && \
     cd .. && \
     rm -rf ycm_build && \
     mkdir regex_build && \
     cd regex_build && \
-    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex && \
+    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=clang . ~/.vim/pack/matteo/start/YouCompleteMe/third_party/ycmd/third_party/cregex && \
     cmake --build . --target _regex
     cd .. && \
     rm -rf regex_build
 elif [ ${UNAME} = "Linux" ]; then
-    cd bundle/YouCompleteMe && \
+    cd pack/matteo/start/YouCompleteMe && \
     python2 ./install.py --clang-completer --clang-tidy
 else
     echo "Fix $0 to build on you OS." >&2
