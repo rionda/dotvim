@@ -23,7 +23,7 @@
 	path = pack/matteo/start/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "bundle/FastFold"]
-	path = bundle.old/FastFold
+	path = pack/matteo/start/FastFold
 	url = https://github.com/Konfekt/FastFold.git
 [submodule "bundle/FoldText"]
 	path = bundle.old/FoldText
