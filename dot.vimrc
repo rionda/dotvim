@@ -64,9 +64,9 @@ set showmatch            " when inserting a parenthesis, briefly jump to the
 "set nowrap              " don't wrap lines
 set termguicolors        " enable true colors, assuming that our terminal
                          " supports them. Disable if it doesn't (in 2020?)
-"let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum" " Additional instructions for true
-                                        "colors, but may not be needed
-"let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum" " As above.
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum" " Additional instructions for true
+                                        "colors, needed in tmux
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum" " As above.
 set background=dark      " we use a dark background
 colorscheme solarized8   " use the solarized8 coloscheme
 
@@ -108,7 +108,7 @@ set grepprg=grep\ -nH\ $* " Set the program for :grep.
                           "
                           "
 " Interaction and custom mapping
-let mapleader = ','      " use ',' as the leader
+let mapleader=','      " use ',' as the leader
 " Use ,t to open a terminal
 nmap <leader>t    :terminal<CR>
 
