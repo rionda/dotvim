@@ -25,9 +25,6 @@
 [submodule "bundle/FastFold"]
 	path = pack/matteo/start/FastFold
 	url = https://github.com/Konfekt/FastFold.git
-[submodule "bundle/FoldText"]
-	path = bundle.old/FoldText
-	url = https://github.com/Konfekt/FoldText.git
 [submodule "bundle/vim-signify"]
 	path = pack/matteo/start/signify
 	url = https://github.com/mhinz/vim-signify.git
@@ -61,3 +58,6 @@
 [submodule "pack/matteo/start/ctrlp.vim"]
 	path = pack/matteo/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/matteo/start/ultisnips"]
+	path = pack/matteo/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
