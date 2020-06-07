@@ -1,23 +1,25 @@
-" To disable a plugin, add it's bundle name to the following list
-" XXX It doesn't seem to work...
-"let g:pathogen_disabled = []
-"call add(g:pathogen_disabled, 'vim-plugin-minbufexpl')
-" This is always first because we have pathogen in bundle/
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-
-" This must be first, because it changes other options as side effect
+" This option must be first, because it changes other options as side effect
 set nocompatible
+" Load the sensible plugin first, as it sets many options that we may want to
+" override
+runtime! plugin/sensible.vim
 
-" Call pathogen to make it easy to install plugins under ~/.vim/bundle
-"call pathogen#infect()
-"call pathogen#helptags()
+"set nomodeline          " ignore modelines at the beginning of files (for the
+                         " sake of security)
+                         "
 
-" Hide files instead of closing them. You can have unwritten changes to a file
-" and open a new file using :e, without being forced to write or undo your
-" changes first
-set hidden
+" Always start a server (suggested by the vimtex docs)
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif
+
+" File management
+set hidden                 " hide files instead of closing them. You can have
+                         " unwritten changes to a file and open a new file using
+                         " :e, without being forced to write or undo your
+                         " changes first
 set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
+set undolevels=1000      " use many levels of undo
 set nobackup             " no backup files (different from no swapfiles!)
 "set noswapfile          " no swap files (you don't want it for remote connections)
 set swapsync=''          " don't force fsync of swapfiles after every write.
@@ -26,53 +28,67 @@ set directory=$HOME/.vim/swapfiles// " directory for swapfiles. The double slash
                          " enables unique swap filenames.
 set autowrite            " saves on certain actions, like make
 set autoread             " check for changes outside of vim
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.synctex*,*.aux,*.toc,*.snm,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif,*.zip,*.rar,*.tgz,*.tbz,*.docx,*.odp,*.pptx,*.dSYM " list of extensions to ignore
 
-let mapleader = ','      " use ',' as the leader
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.synctex*,*.aux,*.toc,*.snm,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif,*.zip,*.rar,*.tgz,*.tbz,*.docx,*.odp,*.pptx,*.dSYM
-set colorcolumn=+1       " highlight the column after textwidth
-set termguicolors		 " To have true colors
-let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+" Appearance
+set ttyfast              " assume a fast terminal connection
 set title                " change the terminal's title
+set lazyredraw           " do not redraw while executing background macros and
+                         " commands. XXX: I'm not sure I want this
+set mouse=a              " activate the mouse
+set mousehide            " hide mouse pointer while typing
+set textwidth=80         " textwidth is 80 columns
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set laststatus=2         " always show status
 set ruler                " show the ruler
 set number               " always show line numbers
-set showcmd              " Show number of selected lines (+ others)
-"set nomodeline          " ignore modelines at the beginning of files (for the
-                         " sake of security)
-set textwidth=80         " textwidth is 80 columns
-set splitright           " Open new vertical splits to the right
-set splitbelow           " Open new horizontal splits on the bottom
-set switchbuf=usetab     "When switching between buffers, consider tabs in all
-                         "windows. Suggested by command-t
-set ttyfast              " Fast terminal connection
-set lazyredraw           " Do not redraw while executing background macros and
-                         " commands
-set mouse=a              " Activate the mouse
-set mousehide            " hide mouse pointer while typing
-set showmatch            " set show matching parenthesis
+set colorcolumn=+1       " highlight the column after textwidth
+set showcmd              " show number of selected lines (+ others)
+set splitright           " open new vertical splits to the right
+set splitbelow           " open new horizontal splits on the bottom
+set switchbuf=usetab     " when switching between buffers, consider tabs in all
+                         " windows. Suggested by command-t
+set cursorline             " highlight the line of the cursor
+" Highlight line number of where cursor currently is
+hi CursorLineNr guifg=#050505
+syntax on                " enable syntax highlighting
+set foldenable           " enable folding
+set foldlevel=0          " start with all folds closed
+set foldlevelstart=0     " set foldlevel to zero when editing another buffer
+" specifies for which commands a fold will be opened
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+
+set showmatch            " when inserting a parenthesis, briefly jump to the
+                         "matching one.
+"set nowrap              " don't wrap lines
+set termguicolors        " enable true colors, assuming that our terminal
+                         " supports them. Disable if it doesn't (in 2020?)
+"let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum" " Additional instructions for true
+                                        "colors, but may not be needed
+"let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum" " As above.
+set background=dark      " we use a dark background
+colorscheme solarized8   " use the solarized8 coloscheme
+
+" Searching
 set ignorecase           " ignore case when searching
 set smartcase            " ignore case if search pattern is all lowercase,
                          " case-sensitive otherwise
 set hlsearch             " highlight search terms
 set incsearch            " show search matches as you type
 
-" Highlight line number of where cursor currently is
-hi CursorLineNr guifg=#050505
-
+" Printing
 set printoptions=paper:letter
 "set printexpr=system('open -a Preview '.v:fname_in) + v:shell_error
-"
+
+" Spellcheck
 setlocal spell
 set spelllang=en_us
-let g:tex_comment_nospell=1 " don't spellcheck in latex comments
-let g:tex_verbspell=0    " don't spellcheck in latex verbatim environment
 " press Ctrl-l while typing to fix the previous mistake
+" from https://castel.dev/post/lecture-notes-1/
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-"set nowrap              " don't wrap lines
+" Editing and indenting
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 "set autoindent          " always set autoindenting on
 set copyindent           " copy the previous indentation on autoindenting
@@ -82,33 +98,184 @@ set shiftwidth=4         " set auto-indents to have a width of 4
 set softtabstop=4        " set the number of columns for a TAB
 set smarttab             " insert tabs on the start of a line according to
                          " shiftwidth, not tabstop
-
+set timeoutlen=10         " 10ms timeout waiting for completion of mappings
+                         " we may want to look also at ttimeoutlen (2 t's
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste
-"
-" Let vim determine the file type to be edited.
-filetype plugin on
-filetype indent on
-set autoindent
+set grepprg=grep\ -nH\ $* " Set the program for :grep.
+                          " -H prints the filename in the header
+                          " -n prints the line number
+                          "    $* is used for additional arguments
+                          "
+                          "
+" Interaction and custom mapping
+let mapleader = ','      " use ',' as the leader
+" Use ,t to open a terminal
+nmap <leader>t    :terminal<CR>
 
-syntax on
+autocmd BufEnter * silent! lcd %:p:h " Set the current directory to the
+                                     " directory of the file edited in
+                                     " the window where the cursor is
 
-set background=dark
-if !has("gui_running")
-	let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
+" Filetype stuff
+filetype on                 " Enable detection of type of file to be edited
+filetype plugin on         " Enable loading filetype-specific plugin files
+filetype indent on         " Enable loading of filetype-specific indent files
+
+set completeopt=menuone,longest,preview
+
+" CPP settings
+autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 keywordprg=cppman
+
+" Crontab settings
+autocmd filetype crontab setlocal nobackup nowritebackup
+au BufNewFile,BufRead crontab.* set nobackup nowritebackup
+
+" HTML settings
+autocmd filetype html setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
+autocmd filetype xhtml setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
+
+" Java settings
+autocmd FileType java setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4
+let java_highlight_all=1 " Enable all possible Java highlighting
+let java_highlight_functions="style" " Highlight functions using Java style
+let java_allow_cpp_keywords=1 " Don't flag C++ keywords as errors (?)
+
+" Python settings
+autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 completeopt-=preview
+let python_highlight_all=1 " Enable all possible Python highlighting
+
+" sh/bash settings
+autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+let g:sh_fold_enabled= 7 " Enable folding of functions, heredoc, and if/do/for
+
+" Tex settings. More settings for the vimtex plugin are below
+autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vimtex not being loaded.
+" The following option resets the default filetype to 'tex'
+let g:tex_flavor = 'latex'
+let g:tex_comment_nospell=1 " don't spellcheck in latex comments
+let g:tex_verbspell=0       " don't spellcheck in latex verbatim environment
+set conceallevel=1            " Concealment of LaTeX code
+let g:tex_conceal='abdmg'    " Conceal accents, bold and italic, delimiters,
+                            " math symbols, and Greek letters. Adding 's' would
+                            " enable concealment for superscript and subscripts.
+let g:tex_fold_enabled=1    " Enable syntax folding in tex files
+
+" vim files
+let g:vimsyn_folding='af'   " fold augroups and functions
+
+" airline plugin
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
 endif
-colorscheme solarized8
+let g:airline_symbols.crypt='🔒'
+let g:airline_symbols.dirty='⚡'
+let g:airline_symbols.linenr=''
+let g:airline_symbols.maxlinenr=''
+let g:airline_symbols.readonly='🔒'
+"let g:airline_symbols.spell='SPL'
+let g:airline_symbols.spell='📖'
+let g:airline_section_y=''        " we don't care about fileencoding, fileformat
+let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
+"custom z section to only have line/totaline:column
+let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
 
-autocmd BufEnter * silent! lcd %:p:h
+" ALE plugin
+" Some stuff is from https://www.lucasfcosta.com/2019/02/10/terminal-guide-2019.html
+let g:ale_open_list=1 " Make ALE automatically open the loclist window
+" Make Ale close the loclist window when the buffer is closed
+augroup CloseLoclistWindowGroup
+    autocmd!
+    autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
+let g:ale_fix_on_save=1 " fix files on save
+" lint after 1000ms after changes are made both on insert mode and normal mode
+let g:ale_lint_on_text_changed='always'
+let g:ale_lint_delay=1000
+" use nice symbols for errors and warnings
+"let g:ale_sign_error= ✗\ '
+let g:ale_sign_error='❌'
+"let g:ale_sign_warning = '⚠\ '
+let g:ale_sign_warning = '🚨'
+let g:ale_sign_info = '💡'
+" fixer configurations: always remove trailing lines and trim extra whitespace
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
 
-let java_highlight_all=1
-let java_highlight_functions="style"
-let java_allow_cpp_keywords=1
+" Ctrl-P plugin
+let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
+let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
 
-set grepprg=grep\ -nH\ $*
+" FastFold plugin
 
-let g:Imap_UsePlaceHolders = 0
+" Fugitive plugin
+set statusline+=%{fugitive#statusline()} " Add git info to status line
 
+" indent_guides plugin
+let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
+let g:indent_guides_start_level=2        " show the guides starting at level 2
+let g:indent_guides_guide_size=1        " use skinny guides of a single char
+
+" UltiSnips plugin
+" The snippets definition are in the UltiSnips directory
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+" vimtex plugin
+let g:vimtex_indent_enabled = 1 " custom vimtex indentation
+" Slightly cleaner fold text (note the whitespace after backslash)
+set fillchars=fold:\
+let g:vimtex_complete_close_braces = 1 " close the brace after a label/citation
+" Autoload extra syntax support for amsmath, cleveref, natbib
+let g:vimtex_syntax_autoload_packages = ['amsmath', 'cleveref', 'natbib']
+" Disable overfull/underfull \hbox warnings
+let g:vimtex_quickfix_latexlog = {
+            \  'overfull' : 0,
+            \ 'underfull' : 0,
+            \}
+" Enable the use of skim as the viewer when on OSX
+if has("unix")
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin\n"
+        let g:vimtex_view_method = 'skim'
+    endif
+endif
+
+" YouCompleteMe plugin
+let g:ycm_add_preview_to_completeopt = 1 " Add more info for semantic completion.
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+" To avoid conflict with UltiSnips, use Ctrl-j and Ctrl-k to move between
+" completions, not tab.
+" See also https://github.com/ycm-core/YouCompleteMe/issues/36
+let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
+
+" Set the Python path on OSX
+if has("unix")
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin\n"
+        let g:ycm_python_binary_path = '/opt/local/bin/python3'
+        let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
+    endif
+endif
+" LaTeX completion with YouCompleteMe. From the vimtex docs
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+:function! DisableYCMIdCompl()
+    let g:ycm_min_num_of_chars_for_completion=1000
+    :YcmRestartServer
+:endfunction
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
 
 " Ignore indents caused by parentheses in FreeBSD style.
 "fun! IgnoreParenIndent()
@@ -139,113 +306,3 @@ let g:Imap_UsePlaceHolders = 0
 "     setlocal tabstop=8
 "     setlocal noexpandtab
 "endfun
-
-let python_highlight_all = 1
-let python_slow_sync = 1
-
-"let g:miniBufExplorerAutoStart = 1
-"let g:miniBufExplBuffersNeeded = 1
-
-"map T :TaskList<CR>
-"map P :TlistToggle<CR>
-
-set completeopt=menuone,longest,preview
-
-autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 completeopt-=preview
-
-autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
-autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 keywordprg=cppman
-
-autocmd FileType java setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
-
-autocmd filetype crontab setlocal nobackup nowritebackup
-au BufNewFile,BufRead crontab.* set nobackup nowritebackup
-
-autocmd filetype html setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
-
-autocmd filetype xhtml setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
-
-autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-set statusline+=%{fugitive#statusline()}
-
-let g:ale_open_list = 1 " Make ALE automatically open a window for the location list.
-
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
-" " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" " 'plaintex' instead of 'tex', which results in vimtex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor = 'latex'
-
-" Disable overfull/underfull \hbox
-let g:vimtex_quickfix_warnings = {
-            \  'overfull' : 0,
-            \ 'underfull' : 0,
-            \}
-
-set foldmethod=syntax
-let g:tex_fold_enabled=1
-let g:vimsyn_folding='af'
-
-set foldenable
-set foldlevel=0
-set foldlevelstart=0
-" specifies for which commands a fold will be opened
-set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-
-let g:vimtex_complete_close_braces = 1
-let g:vimtex_complete_recursive_bib = 1
-let g:vimtex_indent_enabled = 1
-let g:vimtex_fold_enabled = 1
-"Suggested by vimtex docs, but gives an error.
-"set fillcharsivert:|,fold:\
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-        let g:vimtex_view_method = 'skim'
-    endif
-endif
-" Concealment of LaTeX code
-set conceallevel=1
-let g:tex_conceal='abdmg'
-
-" LaTeX completion with YouCompleteMe. From the VimTeX docs
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-"let g:ycm_seed_identifiers_with_syntax = 1
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-        let g:ycm_python_binary_path = '/opt/local/bin/python3'
-        let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
-    endif
-endif
-:function! DisableYCMIdCompl()
-    let g:ycm_min_num_of_chars_for_completion=1000
-    :YcmRestartServer
-:endfunction
-"let g:ycm_server_keep_logfiles = 1
-"let g:ycm_server_log_level = 'debug'
-
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<c-z>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-let g:ctrlp_map = '<leader>b'
-let g:ctrlp_cmd = 'CtrlPBuffer'
-
-nmap <leader>t	:terminal<CR>
-
-nnoremap <F5> :GundoToggle<CR>
