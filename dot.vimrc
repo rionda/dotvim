@@ -218,6 +218,9 @@ let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
 let g:indent_guides_start_level=2        " show the guides starting at level 2
 let g:indent_guides_guide_size=1        " use skinny guides of a single char
 
+" markdown plugin
+let g:vim_markdown_conceal=1 " use concealement in markdown files
+
 " UltiSnips plugin
 " The snippets definition are in the UltiSnips directory
 let g:UltiSnipsExpandTrigger="<Tab>"
