@@ -221,6 +221,11 @@ let g:indent_guides_guide_size=1        " use skinny guides of a single char
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
 
+" tex-conceal plugin
+" Avoid having inscrutable utf-8 glyphs appear
+" let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
+" let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+
 " UltiSnips plugin
 " The snippets definition are in the UltiSnips directory
 let g:UltiSnipsExpandTrigger="<Tab>"
