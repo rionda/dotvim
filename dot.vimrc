@@ -177,13 +177,17 @@ let g:airline_symbols.crypt='🔒'
 let g:airline_symbols.dirty='⚡'
 let g:airline_symbols.linenr=''
 let g:airline_symbols.maxlinenr=''
-let g:airline_symbols.readonly='🔒'
+"let g:airline_symbols.readonly='🔒'
+let g:airline_symbols.readonly='🔏'
 "let g:airline_symbols.spell='SPL'
 let g:airline_symbols.spell='📖'
 let g:airline_section_y=''        " we don't care about fileencoding, fileformat
 let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "custom z section to only have line/totaline:column
 let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
+" airline ALE extension symbols
+let airline#extensions#ale#warning_symbol='❗️'
+let airline#extensions#ale#error_symbol='❌'
 
 " ALE plugin
 " Some stuff is from https://www.lucasfcosta.com/2019/02/10/terminal-guide-2019.html
@@ -200,9 +204,13 @@ let g:ale_lint_delay=1000
 " use nice symbols for errors and warnings
 "let g:ale_sign_error= ✗\ '
 let g:ale_sign_error='❌'
-"let g:ale_sign_warning = '⚠\ '
-let g:ale_sign_warning = '🚨'
-let g:ale_sign_info = '💡'
+"let g:ale_sign_warning = '⚠ '
+"let g:ale_sign_warning='🚨'
+let g:ale_sign_warning='❗️'
+let g:ale_sign_info='💡'
+let g:ale_sign_style_error='🖍'
+"let g:ale_sign_style_warning='✏'
+let g:ale_sign_style_warning='🖌'
 " fixer configurations: always remove trailing lines and trim extra whitespace
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
