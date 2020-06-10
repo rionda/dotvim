@@ -231,6 +231,7 @@ let g:indent_guides_guide_size=1        " use skinny guides of a single char
 
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
+let g:vim_markdown_new_list_item_indent = 2 " indent list items by two spaces
 
 " tex-conceal plugin
 " Avoid having inscrutable utf-8 glyphs appear
