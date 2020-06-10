@@ -62,6 +62,8 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 set showmatch            " when inserting a parenthesis, briefly jump to the
                          "matching one.
 "set nowrap              " don't wrap lines
+" Slightly cleaner fold text (note the whitespace after backslash)
+set fillchars=fold:\
 set termguicolors        " enable true colors, assuming that our terminal
                          " supports them. Disable if it doesn't (in 2020?)
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum" " Additional instructions for true
@@ -160,7 +162,9 @@ set conceallevel=1            " Concealment of LaTeX code
 let g:tex_conceal='abdmg'    " Conceal accents, bold and italic, delimiters,
                             " math symbols, and Greek letters. Adding 's' would
                             " enable concealment for superscript and subscripts.
-let g:tex_fold_enabled=1    " Enable syntax folding in tex files
+"let g:tex_fold_enabled=1    " Enable syntax folding in tex files. Despite the
+                            "use of the FastFold plugin, it seems very slow,
+                            "likely because it clashes with the vimtex plugin.
 
 " vim files
 let g:vimsyn_folding='af'   " fold augroups and functions
@@ -208,7 +212,6 @@ let g:ale_fixers = {
 let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
 let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
 
-" FastFold plugin
 
 " Fugitive plugin
 set statusline+=%{fugitive#statusline()} " Add git info to status line
@@ -233,9 +236,9 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " vimtex plugin
+let g:vimtex_fold_enabled = 1 " custom vimtex folding (0 = disabled)
+let g:vimtex_fold_manual = 1  "  update the folds manually
 let g:vimtex_indent_enabled = 1 " custom vimtex indentation
-" Slightly cleaner fold text (note the whitespace after backslash)
-set fillchars=fold:\
 let g:vimtex_complete_close_braces = 1 " close the brace after a label/citation
 " Autoload extra syntax support for amsmath, cleveref, natbib
 let g:vimtex_syntax_autoload_packages = ['amsmath', 'cleveref', 'natbib']
