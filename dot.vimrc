@@ -50,7 +50,7 @@ set splitbelow           " open new horizontal splits on the bottom
 set switchbuf=usetab     " when switching between buffers, consider tabs in all
                          " windows. Suggested by command-t
 set cursorline           " highlight the line of the cursor
-set scrolloff=12		 " keep at least 12 lines above and below the cursor
+set scrolloff=12         " keep at least 12 lines above and below the cursor
 " Highlight line number of where cursor currently is
 hi CursorLineNr guifg=#050505
 syntax on                " enable syntax highlighting
@@ -63,7 +63,7 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 set fillchars="fold:\ "
 set showmatch            " when inserting a parenthesis, briefly jump to the
                          "matching one.
-set matchtime=2			 " tenths of a second to show the matching parenthesis
+set matchtime=2             " tenths of a second to show the matching parenthesis
 "set nowrap              " don't wrap lines
 set termguicolors        " enable true colors, assuming that our terminal
                          " supports them. Disable if it doesn't (in 2020?)
@@ -104,7 +104,7 @@ set smarttab             " insert tabs on the start of a line according to
 set timeoutlen=150       " 150ms timeout waiting for completion of mappings
                          " we may want to look also at ttimeoutlen (2 t's
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste. It's
-						 "easier to use the '*' register (see help quotestar)
+                         "easier to use the '*' register (see help quotestar)
 set grepprg=grep\ -nH\ $* " Set the program for :grep.
                           " -H prints the filename in the header
                           " -n prints the line number
@@ -124,7 +124,7 @@ autocmd BufEnter * silent! lcd %:p:h " Set the current directory to the
 set completeopt=menuone,longest,preview " autocompletion settings
 
 " Filetype stuff
-filetype on                 " Enable detection of type of file to be edited
+filetype on                " Enable detection of type of file to be edited
 filetype plugin on         " Enable loading filetype-specific plugin files
 filetype indent on         " Enable loading of filetype-specific indent files
 
@@ -164,8 +164,8 @@ autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softta
 let g:tex_flavor = 'latex'
 let g:tex_comment_nospell=1 " don't spellcheck in latex comments
 let g:tex_verbspell=0       " don't spellcheck in latex verbatim environment
-set conceallevel=1            " Concealment of LaTeX code
-let g:tex_conceal='abdmg'    " Conceal accents, bold and italic, delimiters,
+set conceallevel=1          " Concealment of LaTeX code
+let g:tex_conceal='abdmg'   " Conceal accents, bold and italic, delimiters,
                             " math symbols, and Greek letters. Adding 's' would
                             " enable concealment for superscript and subscripts.
 "let g:tex_fold_enabled=1    " Enable syntax folding in tex files. Despite the
