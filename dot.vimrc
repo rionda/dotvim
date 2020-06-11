@@ -106,8 +106,7 @@ set grepprg=grep\ -nH\ $* " Set the program for :grep.
                           " -H prints the filename in the header
                           " -n prints the line number
                           "    $* is used for additional arguments
-                          "
-                          "
+
 " Interaction and custom mapping
 let mapleader=','      " use ',' as the leader
 " Use ,t to open a terminal
