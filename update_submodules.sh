@@ -14,6 +14,4 @@ git submodule sync --recursive && \
 echo "## Updating submodules recursively" &&  \
 git submodule update --init --recursive && \
 echo "## Building YCM" &&  \
-./build_ycm.sh && \
-echo "## Updating helptags" && \
-vim -u NONE --cmd ":helptags ALL" --cmd ":q"
+./build_ycm.sh
