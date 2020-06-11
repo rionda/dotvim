@@ -58,12 +58,11 @@ set foldlevel=0          " start with all folds closed
 set foldlevelstart=0     " set foldlevel to zero when editing another buffer
 " specifies for which commands a fold will be opened
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-
+" Slightly cleaner fold text (note the whitespace after backslash)
+set fillchars="fold:\ "
 set showmatch            " when inserting a parenthesis, briefly jump to the
                          "matching one.
 "set nowrap              " don't wrap lines
-" Slightly cleaner fold text (note the whitespace after backslash)
-set fillchars=fold:\
 set termguicolors        " enable true colors, assuming that our terminal
                          " supports them. Disable if it doesn't (in 2020?)
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum" " Additional instructions for true
