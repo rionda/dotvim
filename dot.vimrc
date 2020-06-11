@@ -237,6 +237,9 @@ let g:indent_guides_guide_size=1        " use skinny guides of a single char
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
 
+" signify plugin
+let g:signify_sign_change='~' " use tilde for changed lines
+
 " tex-conceal plugin
 " Avoid having inscrutable utf-8 glyphs appear
 " let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
