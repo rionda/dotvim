@@ -118,12 +118,12 @@ autocmd BufEnter * silent! lcd %:p:h " Set the current directory to the
                                      " directory of the file edited in
                                      " the window where the cursor is
 
+set completeopt=menuone,longest,preview " autocompletion settings
+
 " Filetype stuff
 filetype on                 " Enable detection of type of file to be edited
 filetype plugin on         " Enable loading filetype-specific plugin files
 filetype indent on         " Enable loading of filetype-specific indent files
-
-set completeopt=menuone,longest,preview
 
 " CPP settings
 autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 keywordprg=cppman
