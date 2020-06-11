@@ -62,6 +62,7 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 set fillchars="fold:\ "
 set showmatch            " when inserting a parenthesis, briefly jump to the
                          "matching one.
+set matchtime=2			 " tenths of a second to show the matching parenthesis
 "set nowrap              " don't wrap lines
 set termguicolors        " enable true colors, assuming that our terminal
                          " supports them. Disable if it doesn't (in 2020?)
