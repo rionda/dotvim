@@ -130,7 +130,7 @@ autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softta
 
 " Crontab settings
 autocmd filetype crontab setlocal nobackup nowritebackup
-au BufNewFile,BufRead crontab.* set nobackup nowritebackup
+autocmd BufNewFile,BufRead crontab.* set nobackup nowritebackup
 
 " HTML settings
 autocmd filetype html setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
@@ -289,7 +289,7 @@ endif
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+autocmd VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 :function! DisableYCMIdCompl()
     let g:ycm_min_num_of_chars_for_completion=1000
     :YcmRestartServer
