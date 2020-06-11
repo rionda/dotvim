@@ -175,6 +175,8 @@ let g:tex_conceal='abdmg'   " Conceal accents, bold and italic, delimiters,
 " vim files
 let g:vimsyn_folding='af'   " fold augroups and functions
 
+"Plugin settings
+
 " airline plugin
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
