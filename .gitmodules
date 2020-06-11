@@ -61,3 +61,6 @@
 [submodule "pack/matteo/start/tex-conceal.vim"]
 	path = pack/matteo/start/tex-conceal.vim
 	url = https://github.com/KeitaNakamura/tex-conceal.vim.git
+[submodule "pack/matteo/start/vim-tmux"]
+	path = pack/matteo/start/vim-tmux
+	url = https://github.com/tmux-plugins/vim-tmux.git
