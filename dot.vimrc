@@ -34,7 +34,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,*.synctex*,*.aux,*.toc,*.snm,*.nav,*.fd
 set ttyfast              " assume a fast terminal connection
 set title                " change the terminal's title
 set lazyredraw           " do not redraw while executing background macros and
-                         " commands. XXX: I'm not sure I want this
+                         " commands. Makes the macro faster (folklore?)
 set mouse=a              " activate the mouse
 set mousehide            " hide mouse pointer while typing
 set textwidth=80         " textwidth is 80 columns
