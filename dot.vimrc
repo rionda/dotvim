@@ -142,6 +142,9 @@ let java_highlight_all=1 " Enable all possible Java highlighting
 let java_highlight_functions="style" " Highlight functions using Java style
 let java_allow_cpp_keywords=1 " Don't flag C++ keywords as errors (?)
 
+" Markdown settings. See also the settings for the vim-markdown plugin below
+autocmd FileType markdown setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4
+
 " Python settings
 autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 completeopt-=preview
 let python_highlight_all=1 " Enable all possible Python highlighting
@@ -231,7 +234,6 @@ let g:indent_guides_guide_size=1        " use skinny guides of a single char
 
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
-let g:vim_markdown_new_list_item_indent = 2 " indent list items by two spaces
 
 " tex-conceal plugin
 " Avoid having inscrutable utf-8 glyphs appear
