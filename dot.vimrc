@@ -101,8 +101,7 @@ set shiftwidth=4         " set auto-indents to have a width of 4
 set softtabstop=4        " set the number of columns for a TAB
 set smarttab             " insert tabs on the start of a line according to
                          " shiftwidth, not tabstop
-set timeoutlen=150       " 150ms timeout waiting for completion of mappings
-                         " we may want to look also at ttimeoutlen (2 t's
+set timeoutlen=200       " millisecs timeout waiting for completion of mappings
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste. It's
                          "easier to use the '*' register (see help quotestar)
 set grepprg=grep\ -nH\ $* " Set the program for :grep.
