@@ -69,4 +69,4 @@
 	url = git://github.com/tmux-plugins/vim-tmux-focus-events.git
 [submodule "pack/matteo/start/neomutt.vim"]
 	path = pack/matteo/start/neomutt.vim
-	url = https://github.com/neomutt/neomutt.vim.git
+	url = https://github.com/neomutt.vim.git
