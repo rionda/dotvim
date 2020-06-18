@@ -73,6 +73,3 @@
 [submodule "pack/matteo/start/calendar.vim"]
 	path = pack/matteo/start/calendar.vim
 	url = https://github.com/itchyny/calendar.vim.git
-[submodule "pack/matteo/start/vim-notmuch-address"]
-	path = pack/matteo/start/vim-notmuch-address
-	url = https://github.com/rionda/vim-notmuch-address.git

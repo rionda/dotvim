@@ -223,11 +223,20 @@ let g:ale_sign_style_warning='🖌'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
+let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werro -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
+
+" calendar plugin
+let g:calendar_google_calendar=1	" show events from google calendar
+"let g:calendar_frame='default'		" address visualization issues.
+let g:calendar_first_day="monday"	" my week starts on Monday
+let g:calendar_date_month_name=1	" show the name of the month
+let g:calendar_view="week"			" show week view by default
+let g:calendar_cyclic_view=1		" cycle through views with < and >
+source ~/.cache/calendar.vim/credentials.vim
 
 " Ctrl-P plugin
 let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
 let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
-
 
 " Fugitive plugin
 set statusline+=%{fugitive#statusline()} " Add git info to status line
@@ -236,9 +245,12 @@ set statusline+=%{fugitive#statusline()} " Add git info to status line
 let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
 let g:indent_guides_start_level=2        " show the guides starting at level 2
 let g:indent_guides_guide_size=1        " use skinny guides of a single char
+let g:indent_guides_exclude_filetypes=['help', 'calendar'] " disable on some file types
 
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
+
+" notmuch_address plugin
 
 " signify plugin
 let g:signify_sign_change='~' " use tilde for changed lines
@@ -247,6 +259,9 @@ let g:signify_sign_change='~' " use tilde for changed lines
 " Avoid having inscrutable utf-8 glyphs appear
 " let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 " let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+
+" trailing-whitespace plugin
+let g:extra_whitespace_ignored_filetypes=['calendar', 'help']
 
 " UltiSnips plugin
 " The snippets definition are in the UltiSnips directory
@@ -336,3 +351,46 @@ autocmd VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 "     setlocal tabstop=8
 "     setlocal noexpandtab
 "endfun
+"
+"
+function! OmniCompleteNotmuchAddress(findstart, base)
+  let curline = getline('.')
+  if curline =~ '^From: ' || curline =~ '^To: ' || curline =~ '^Cc: ' || curline =~ '^Bcc: '
+    if a:findstart
+      " locate the start of the word
+      let header_limit = stridx(curline, ": ") + 2 " Find end of the header
+      let start = col('.') - 1
+      while start > header_limit && curline[start - 2] != ","
+        let start -= 1
+      endwhile
+      return start
+    else
+      if a:base =~ ':'
+        " Assume this is a notmuch search query using notmuch-search-terms(7)
+        let search_prefix = ""
+        let query=shellescape(a:base)
+      else
+        " Only search mailboxes from the From: line
+        let search_prefix = "from:"
+
+        " Add wildcard for partial match
+        let query = shellescape(a:base . '*')
+      endif
+
+      let address_tag = ""
+      if exists("g:notmuch_address_tag")
+        let address_tag = "tag:" . shellescape(g:notmuch_address_tag)
+      endif
+
+      let ncommand = "/opt/local/bin/notmuch address -- " . address_tag . " " . search_prefix . query
+      let addrs = []
+      for m in systemlist(ncommand)
+        call add(addrs, m)
+      endfor
+      return addrs
+    endif
+  endif
+endfunction
+"
+autocmd VimEnter * unlet g:ycm_filetype_blacklist.mail
+autocmd FileType mail,notmuch-compose set omnifunc=OmniCompleteNotmuchAddress
