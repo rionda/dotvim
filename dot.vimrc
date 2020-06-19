@@ -219,9 +219,9 @@ let g:ale_sign_info='💡'
 let g:ale_sign_style_error='🖍'
 "let g:ale_sign_style_warning='✏'
 let g:ale_sign_style_warning='🖌'
-" fixer configurations: always remove trailing lines and trim extra whitespace
+" fixer configurations: always remove trailing lines
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   '*': ['remove_trailing_lines'],
 \}
 let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werro -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
 
