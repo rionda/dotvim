@@ -320,15 +320,30 @@ if has("unix")
         let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
     endif
 endif
+" disable the YCM identifier completer.
+function! DisableYCMIdCompl()
+    if exists("g:ycm_min_num_of_chars_for_completion")
+        if g:ycm_min_num_of_chars_for_completion < 99
+            let g:ycm_min_num_of_chars_for_completion = 99
+            "if g:loaded_youcompleteme
+            "    call YcmRestartServer
+            "endif
+        endif
+    else
+        let g:ycm_min_num_of_chars_for_completion = 99
+    endif
+endfunction
 " LaTeX completion with YouCompleteMe. From the vimtex docs
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 autocmd VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
-:function! DisableYCMIdCompl()
-    let g:ycm_min_num_of_chars_for_completion=1000
-    :YcmRestartServer
-:endfunction
+autocmd FileType tex call DisableYCMIdCompl()
+" Email address completion with YouCompleteMe with not muchaddress
+autocmd VimEnter * unlet g:ycm_filetype_blacklist.mail
+autocmd VimEnter * let g:ycm_semantic_triggers.mail=g:notmuchaddress#config#ycmtrigger
+autocmd FileType mail call DisableYCMIdCompl()
+
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
 
