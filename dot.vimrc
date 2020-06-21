@@ -133,7 +133,7 @@ filetype indent on         " Enable loading of filetype-specific indent files
 autocmd FileType cpp setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 keywordprg=cppman
 
 " Crontab settings
-autocmd filetype crontab setlocal nobackup nowritebackup
+autocmd FileType crontab setlocal nobackup nowritebackup
 autocmd BufNewFile,BufRead crontab.* set nobackup nowritebackup
 
 " HTML settings
@@ -158,7 +158,7 @@ autocmd FileType sh setlocal autoindent formatoptions=tcq2l textwidth=70 tabstop
 let g:sh_fold_enabled= 7 " Enable folding of functions, heredoc, and if/do/for
 
 " Tex settings. More settings for the vimtex plugin are below
-autocmd filetype tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vimtex not being loaded.
 " The following option resets the default filetype to 'tex'
