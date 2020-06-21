@@ -227,13 +227,22 @@ let g:ale_fixers = {
 let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werro -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
 
 " calendar plugin
-let g:calendar_google_calendar=1	" show events from google calendar
-"let g:calendar_frame='default'		" address visualization issues.
-let g:calendar_first_day="monday"	" my week starts on Monday
-let g:calendar_date_month_name=1	" show the name of the month
-let g:calendar_view="week"			" show week view by default
-let g:calendar_cyclic_view=1		" cycle through views with < and >
-source ~/.cache/calendar.vim/credentials.vim
+let g:calendar_google_calendar=1        " show events from google calendar
+let g:calendar_frame = 'unicode_double' " show a better frame XXX (doesn't work?)
+let g:calendar_first_day="monday"		" my week starts on Monday
+let g:calendar_date_month_name=1		" show the name of the month
+let g:calendar_view="week"				" show week view by default
+let g:calendar_cyclic_view=1			" cycle through views with < and >
+let g:calendar_task_width = 0
+"source ~/.cache/calendar.vim/credentials.vim
+source ~/.cache/calendar.vim/credentials-amherst.vim
+autocmd FileType calendar setlocal redrawtime=10000 " drawing the calendar is a
+                                                   " bit slow, so give it more
+                                                   " time.
+autocmd FileType calendar match ErrorMsg ''        " trailing spaces are
+                                                   "highlighted in calendar,
+                                                   " probably by solarized8.
+                                                   " Just don't.
 
 " Ctrl-P plugin
 let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
