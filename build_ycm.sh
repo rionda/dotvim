@@ -37,7 +37,7 @@ elif [ ${UNAME} = "Darwin" ]; then
     rm -rf regex_build
 elif [ ${UNAME} = "Linux" ]; then
     cd pack/matteo/start/YouCompleteMe && \
-    python2 ./install.py --clang-completer --clang-tidy
+    python3 ./install.py --clang-completer --clang-tidy
 else
     echo "Fix $0 to build on you OS." >&2
     exit 1
