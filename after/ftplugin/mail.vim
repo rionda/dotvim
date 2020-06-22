@@ -42,10 +42,10 @@ function! MailPreProcess() abort
 	if l > 1 " the messages looks like a reply
 		let f = FirstLineNotMailHeader()
 		" Get rid of the last person signature, if any, by looking for a line
-		" starting with '>' followed by zero or one space, followed by two dashes
-		" '--', followed by zero or 1 space, and deleting everything coming after
-		" it. Feels a bit dangerous and likely not general enough, but it is a
-		" start.
+		" starting with '>' followed by zero or one space, followed by two
+		" dashes '--', followed by zero or 1 space, and deleting everything
+		" coming after it. Feels a bit dangerous and likely not general enough,
+		" but it is a start.
 		:g/^>\s\=--\s\=$/,$ delete
 		" Use the command "par", if available to reflow the quoted text with a
 		" text width of 72, and taking care of the quotes. Note that the line
