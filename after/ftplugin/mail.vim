@@ -14,45 +14,38 @@ setlocal formatoptions=awq
 " breaks.
 match ErrorMsg '\s\+$'
 
-function! FirstLineNotMailHeader() abort
-	" Find the first line that doesn't look like a header, per RFC 2822.
-	let l = 1
-	" TODO: is there a way to achieve this using regexps?
-	while getline(l) =~ '^[!-9;-~]\+:' && l < line('$')
-		let l += 1
-	endwhile
-	return l
-endfunction
-
-function! LastReplyLine() abort
-	" Find the last line that looks like a reply lien
-	let l = line('$')
-
-	" TODO: is there a way to achieve this using regexps?
-	while getline(l) !~ '^>' && l > 1
-		let l -= 1
-	endwhile
-	return l
-endfunction
-
+" Get flowed text in replies, and try to remove old signatures.
+"
+" The only reason for using  a function and not just a list of commands is that
+" a function is easier to debug because it can be called.
 function! MailPreProcess() abort
-	" Various email preprocessing steps, including obtaining flowed text in
-	" replies.
-	let l = LastReplyLine()
-	if l > 1 " the messages looks like a reply
-		let f = FirstLineNotMailHeader()
+	" Move back to the beginning
+	call cursor(1, 1)
+	let inReplyToLine = search('^In-Reply-To:')
+	if inReplyToLine != 0
+		call cursor(line('$'), 1)
+		let l = search('^>', 'bc', inReplyToLine)
+		let f = inReplyToLine + 1
 		" Get rid of the last person signature, if any, by looking for a line
 		" starting with '>' followed by zero or one space, followed by two
 		" dashes '--', followed by zero or 1 space, and deleting everything
-		" coming after it. Feels a bit dangerous and likely not general enough,
-		" but it is a start.
-		:g/^>\s\=--\s\=$/,$ delete
+		" in the quoted text coming after it. Feels a bit dangerous and likely
+		" not general enough, but it is a start.
+		let oldSigLine = search('^>\s\=--\s\=$', 'bc', l)
+		if oldSigLine != 0
+			execute oldSigLine .. ',' .. l .. ':delete'
+			" Update l because it will have changed.
+			let l = oldSigLine - 1
+		endif
 		" Use the command "par", if available to reflow the quoted text with a
 		" text width of 72, and taking care of the quotes. Note that the line
 		" "On ... wrote:" is also included, because it may be too long.
 		let parpath = exepath('par')
 		if ! empty(parpath)
 			execute ':' .. f .. ',' .. l .. '!' .. parpath .. ' w72q'
+			" Update l because it may have changed.
+			call cursor(line('$'), 1)
+			let l = search('^>', 'bc', inReplyToLine)
 		endif
 		" Format quoted text to use flowed text: search for any line that is not
 		" zero characters, followed by a line that is *not* 0 characters or only
@@ -64,6 +57,8 @@ function! MailPreProcess() abort
 		" whitespaces. The match is just the whitespace part. The substitution
 		" is the empty string, which means that the whitespace part is removed.
 		execute ':' .. f .. ',' .. l .. 's/^>*\zs\s\+$//e'
+		" Go back to the first line
+		call cursor(1,1)
 	endif
 endfunction
 
