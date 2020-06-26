@@ -31,7 +31,7 @@ function! MailPreProcess() abort
 		" dashes '--', followed by zero or 1 space, and deleting everything
 		" in the quoted text coming after it. Feels a bit dangerous and likely
 		" not general enough, but it is a start.
-		let oldSigLine = search('^>\s\=--\s\=$', 'bc', l)
+		let oldSigLine = search('^>\s\=--\s\=$', 'bc', f)
 		if oldSigLine != 0
 			execute oldSigLine .. ',' .. l .. ':delete'
 			" Update l because it will have changed.
