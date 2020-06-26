@@ -236,13 +236,11 @@ let g:calendar_cyclic_view=1			" cycle through views with < and >
 let g:calendar_task_width = 0
 "source ~/.cache/calendar.vim/credentials.vim
 source ~/.cache/calendar.vim/credentials-amherst.vim
-autocmd FileType calendar setlocal redrawtime=10000 " drawing the calendar is a
-                                                   " bit slow, so give it more
-                                                   " time.
-autocmd FileType calendar match ErrorMsg ''        " trailing spaces are
-                                                   "highlighted in calendar,
-                                                   " probably by solarized8.
-                                                   " Just don't.
+" filetype autocmd for the calendar. Drawing the calendar is a bit slow, so give
+" it more time.
+autocmd FileType calendar setlocal nospell redrawtime=10000
+" trailing spaces are highlighted in calendar, probably by solarized8. Just don't.
+autocmd FileType calendar match ErrorMsg ''
 
 " Ctrl-P plugin
 let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
