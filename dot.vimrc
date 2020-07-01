@@ -228,6 +228,8 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines'],
 \}
 let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werro -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
+let g:ale_python_flake8_executable='/opt/local/bin/flake8'
+let g:ale_python_flake8_use_global=1
 
 " calendar plugin
 let g:calendar_google_calendar=1        " show events from google calendar
