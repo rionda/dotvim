@@ -14,7 +14,7 @@ if empty(v:servername) && exists('*remote_startserver')
 endif
 
 " File management
-set hidden                 " hide files instead of closing them. You can have
+set hidden               " hide files instead of closing them. You can have
                          " unwritten changes to a file and open a new file using
                          " :e, without being forced to write or undo your
                          " changes first
