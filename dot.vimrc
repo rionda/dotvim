@@ -116,6 +116,9 @@ let mapleader=','      " use ',' as the leader
 " Use ,t to open a terminal
 nmap <leader>t    :terminal<CR>
 
+" Replace three dots with the horizontal ellipsis
+inoreabbrev ...  …
+
 " Automatic actions on start and on entering buffers
 autocmd VimEnter * silent! helptags ALL " Generate help tags files on start
 autocmd BufEnter * silent! lcd %:p:h " Set the current directory to the
