@@ -210,15 +210,14 @@ augroup CloseLoclistWindowGroup
     autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
 let g:ale_fix_on_save=1 " fix files on save
-" lint after 1000ms after changes are made both on insert mode and normal mode
-let g:ale_lint_on_text_changed='always'
+" lint after 1000ms after changes are made
 let g:ale_lint_delay=1000
 " use nice symbols for errors and warnings
 "let g:ale_sign_error= ✗\ '
 let g:ale_sign_error='❌'
-"let g:ale_sign_warning = '⚠ '
 "let g:ale_sign_warning='🚨'
 let g:ale_sign_warning='❗️'
+"let g:ale_sign_warning='!'
 let g:ale_sign_info='💡'
 let g:ale_sign_style_error='🖍'
 "let g:ale_sign_style_warning='✏'
@@ -270,8 +269,8 @@ let g:signify_sign_change='~' " use tilde for changed lines
 
 " tex-conceal plugin
 " Avoid having inscrutable utf-8 glyphs appear
-" let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
-" let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
+let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 
 " trailing-whitespace plugin
 let g:extra_whitespace_ignored_filetypes=['calendar', 'help']
