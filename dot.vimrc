@@ -8,10 +8,13 @@ runtime! plugin/sensible.vim
                          " sake of security)
                          "
 
-" Always start a server (suggested by the vimtex docs)
-if empty(v:servername) && exists('*remote_startserver')
-    call remote_startserver('VIM')
-endif
+" Always start a server (suggested by the vimtex docs for backward search)
+" Disabled because MacVim has a broken server when used from the terminal, and
+" 'vanilla' Vim from MacPorts does not support server unless compiled with X11
+" support. In any case, we weren't really using backward search much.
+"if empty(v:servername) && exists('*remote_startserver')
+"    call remote_startserver('VIM')
+"endif
 
 " File management
 set hidden               " hide files instead of closing them. You can have
