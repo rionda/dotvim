@@ -86,7 +86,7 @@ set incsearch            " show search matches as you type
 
 " Printing
 set printoptions=paper:letter
-"set printexpr=system('open -a Preview '.v:fname_in) + v:shell_error
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
 
 " Spellcheck
 setlocal spell
