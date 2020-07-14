@@ -349,10 +349,15 @@ if !exists('g:ycm_semantic_triggers')
 endif
 autocmd VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 autocmd FileType tex call DisableYCMIdCompl()
-" Email address completion with YouCompleteMe with not muchaddress
-autocmd VimEnter * unlet g:ycm_filetype_blacklist.mail
-autocmd VimEnter * let g:ycm_semantic_triggers.mail=g:notmuchaddress#config#ycmtrigger
-autocmd FileType mail call DisableYCMIdCompl()
+function! EnableYCMNotMuchAddress()
+	if exists('g:loaded_notmuchaddress')
+		" Email address completion with YouCompleteMe with not muchaddress
+		unlet g:ycm_filetype_blacklist.mail
+		let g:ycm_semantic_triggers.mail=g:notmuchaddress#config#ycmtrigger
+		autocmd FileType mail call DisableYCMIdCompl()
+	endif
+endfunction
+autocmd VimEnter * call EnableYCMNotMuchAddress()
 
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
