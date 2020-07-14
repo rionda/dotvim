@@ -86,7 +86,7 @@ set incsearch            " show search matches as you type
 
 " Printing
 set printoptions=paper:letter
-"set printexpr=system('open -a Preview '.v:fname_in) + v:shell_error
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
 
 " Spellcheck
 setlocal spell
@@ -216,8 +216,9 @@ let g:ale_fix_on_save=1 " fix files on save
 " lint after 1000ms after changes are made
 let g:ale_lint_delay=1000
 " use nice symbols for errors and warnings
-"let g:ale_sign_error= ✗\ '
-let g:ale_sign_error='❌'
+let g:ale_sign_error='✗'
+" The following symbolis double width, which messes stuff up
+"let g:ale_sign_error='❌'
 "let g:ale_sign_warning='🚨'
 let g:ale_sign_warning='❗️'
 "let g:ale_sign_warning='!'
@@ -229,7 +230,11 @@ let g:ale_sign_style_warning='🖌'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines'],
 \}
-let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werro -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
+let g:ale_linters={'cpp': ['clang']}
+let g:ale_cpp_clang_executable="/opt/local/bin/clang++"
+let g:ale_c_parse_compile_commands=1
+let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werror -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
+"let g:ale_cpp_clangtidy_checks = [ ]
 let g:ale_python_flake8_executable='/opt/local/bin/flake8'
 let g:ale_python_flake8_use_global=1
 
