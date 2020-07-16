@@ -230,7 +230,7 @@ let g:ale_sign_style_warning='🖌'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines'],
 \}
-let g:ale_linters={'cpp': ['clang']}
+let g:ale_linters={'cpp': ['clang'], 'tex': ['chktex']}
 let g:ale_cpp_clang_executable="/opt/local/bin/clang++"
 let g:ale_c_parse_compile_commands=1
 let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werror -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
