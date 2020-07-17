@@ -199,7 +199,8 @@ if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
 let g:airline_symbols.crypt='🔒'
-let g:airline_symbols.dirty='⚡'
+"let g:airline_symbols.dirty='⚡'
+let g:airline_symbols.dirty='★'
 let g:airline_symbols.linenr=''
 let g:airline_symbols.maxlinenr=''
 "let g:airline_symbols.readonly='🔒'
@@ -210,9 +211,11 @@ let g:airline_section_y=''        " we don't care about fileencoding, fileformat
 let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "custom z section to only have line/totaline:column
 let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
-" airline ALE extension symbols
-let airline#extensions#ale#warning_symbol='❗️'
-let airline#extensions#ale#error_symbol='❌'
+let g:airline_extensions =['branch'] " we only care about the branch extension
+" airline ALE extension symbols (disabled anyway)
+"let airline#extensions#ale#warning_symbol='❗️'
+"let airline#extensions#ale#error_symbol='✗'
+"let airline#extensions#ale#error_symbol='❌'
 
 " ALE plugin
 " Some stuff is from https://www.lucasfcosta.com/2019/02/10/terminal-guide-2019.html
@@ -267,9 +270,6 @@ autocmd FileType calendar match ErrorMsg ''
 " Ctrl-P plugin
 let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
 let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
-
-" Fugitive plugin
-set statusline+=%{fugitive#statusline()} " Add git info to status line
 
 " indent_guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
