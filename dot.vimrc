@@ -105,7 +105,17 @@ set shiftwidth=4         " set auto-indents to have a width of 4
 set softtabstop=4        " set the number of columns for a TAB
 set smarttab             " insert tabs on the start of a line according to
                          " shiftwidth, not tabstop
-set timeoutlen=200       " millisecs timeout waiting for completion of mappings
+"set timeoutlen=200      " millisecs timeout waiting for completion of mappings
+" The following should make vim more responsive when leaving insertmode
+" From https://medium.com/usevim/powerline-escape-fix-e849fd07aad0
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=200
+  augroup END
+endif
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste. It's
                          "easier to use the '*' register (see help quotestar)
 set grepprg=grep\ -nH\ $* " Set the program for :grep.
