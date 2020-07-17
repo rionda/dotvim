@@ -230,7 +230,7 @@ let g:ale_fix_on_save=1 " fix files on save
 let g:ale_lint_delay=1000
 " use nice symbols for errors and warnings
 let g:ale_sign_error='✗'
-" The following symbolis double width, which messes stuff up
+" The following symbol is double width, which messes up columns
 "let g:ale_sign_error='❌'
 "let g:ale_sign_warning='🚨'
 let g:ale_sign_warning='❗️'
