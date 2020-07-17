@@ -185,7 +185,7 @@ set conceallevel=1          " Concealment of LaTeX code
 let g:tex_conceal='abdmg'   " Conceal accents, bold and italic, delimiters,
                             " math symbols, and Greek letters. Adding 's' would
                             " enable concealment for superscript and subscripts.
-"let g:tex_fold_enabled=1    " Enable syntax folding in tex files. Despite the
+let g:tex_fold_enabled=1    " Enable syntax folding in tex files. Despite the
                             "use of the FastFold plugin, it seems very slow,
                             "likely because it clashes with the vimtex plugin.
 
@@ -300,7 +300,7 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " vimtex plugin
-let g:vimtex_fold_enabled = 1 " custom vimtex folding (0 = disabled)
+let g:vimtex_fold_enabled = 0 " custom vimtex folding (0 = disabled)
 let g:vimtex_fold_manual = 1  "  update the folds manually
 let g:vimtex_indent_enabled = 1 " custom vimtex indentation
 let g:vimtex_complete_close_braces = 1 " close the brace after a label/citation
