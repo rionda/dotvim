@@ -73,3 +73,6 @@
 [submodule "pack/matteo/start/calendar.vim"]
 	path = pack/matteo/start/calendar.vim
 	url = https://github.com/itchyny/calendar.vim.git
+[submodule "pack/matteo/start/vim-matchup"]
+	path = pack/matteo/start/vim-matchup
+	url = https://github.com/andymass/vim-matchup.git
