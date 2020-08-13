@@ -144,7 +144,7 @@ autocmd BufEnter * silent! lcd %:p:h " Set the current directory to the
                                      " directory of the file edited in
                                      " the window where the cursor is
 
-set completeopt=menuone,longest,preview " autocompletion settings
+set completeopt=menuone,longest,popup,preview " autocompletion settings
 
 " Filetype stuff
 filetype on                " Enable detection of type of file to be edited
@@ -172,7 +172,7 @@ let java_allow_cpp_keywords=1 " Don't flag C++ keywords as errors (?)
 autocmd FileType markdown setlocal autoindent expandtab textwidth=80 tabstop=4 softtabstop=4 shiftwidth=4
 
 " Python settings
-autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99 completeopt-=preview
+autocmd FileType python setlocal autoindent expandtab textwidth=79 tabstop=8 softtabstop=4 shiftwidth=4 foldmethod=indent foldlevel=99
 let python_highlight_all=1 " Enable all possible Python highlighting
 
 " sh/bash settings
@@ -329,7 +329,7 @@ if s:uname == "Darwin\n"
 endif
 
 " YouCompleteMe plugin
-"let g:ycm_add_preview_to_completeopt = 1 " Add more info for semantic completion.
+let g:ycm_add_preview_to_completeopt='popup' " Add more info for semantic completion.
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_complete_in_comments = 1
