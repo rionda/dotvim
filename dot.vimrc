@@ -322,10 +322,9 @@ let g:vimtex_complete_close_braces = 1 " close the brace after a label/citation
 " Autoload extra syntax support for amsmath, cleveref, natbib
 let g:vimtex_syntax_autoload_packages = ['amsmath', 'cleveref', 'natbib']
 " Disable overfull/underfull \hbox warnings
-let g:vimtex_quickfix_latexlog = {
-            \  'overfull' : 0,
-            \ 'underfull' : 0,
-            \}
+let g:vimtex_quickfix_ignore_filters = [
+			\ 'overfull', 'underfull'
+            \]
 " Enable the use of skim as the viewer when on OSX
 if s:uname == "Darwin\n"
 	let g:vimtex_view_method = 'skim'
