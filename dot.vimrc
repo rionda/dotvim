@@ -4,6 +4,12 @@ set nocompatible
 " override
 runtime! plugin/sensible.vim
 
+if has("unix")
+    let s:uname = system("uname -s")
+else
+	let s:uname = 'notunix'
+endif
+
 "set nomodeline          " ignore modelines at the beginning of files (for the
                          " sake of security)
                          "
@@ -246,15 +252,12 @@ let g:ale_fixers = {'*': ['remove_trailing_lines'],
 let g:ale_linters={'cpp': ['clang'], 'python': ['flake8'], 'sh': ['shell'],
 			\'tex': ['chktex']}
 "let g:ale_cpp_clangtidy_checks = [ ]
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-		let g:ale_python_flake8_executable='/opt/local/bin/flake8'
-		let g:ale_cpp_clang_executable="/opt/local/bin/clang++"
-	elseif s:uname =="FreeBSD\n"
-		let g:ale_python_flake8_executable='/usr/local/bin/flake8'
-		let g:ale_cpp_clang_executable="/usr/local/bin/clang++10"
-	endif
+if s:uname == "Darwin\n"
+	let g:ale_python_flake8_executable='/opt/local/bin/flake8'
+	let g:ale_cpp_clang_executable="/opt/local/bin/clang++"
+elseif s:uname =="FreeBSD\n"
+	let g:ale_python_flake8_executable='/usr/local/bin/flake8'
+	let g:ale_cpp_clang_executable="/usr/local/bin/clang++10"
 endif
 let g:ale_python_flake8_use_global=1
 let g:ale_c_parse_compile_commands=1
@@ -321,11 +324,8 @@ let g:vimtex_quickfix_latexlog = {
             \ 'underfull' : 0,
             \}
 " Enable the use of skim as the viewer when on OSX
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-        let g:vimtex_view_method = 'skim'
-    endif
+if s:uname == "Darwin\n"
+	let g:vimtex_view_method = 'skim'
 endif
 
 " YouCompleteMe plugin
@@ -342,12 +342,9 @@ let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
 
 " Set the Python path on OSX
-if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-        let g:ycm_python_binary_path = '/opt/local/bin/python3'
-        let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
-    endif
+if s:uname == "Darwin\n"
+	let g:ycm_python_binary_path = '/opt/local/bin/python3'
+	let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
 endif
 " disable the YCM identifier completer.
 function! DisableYCMIdCompl()
