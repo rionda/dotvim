@@ -198,6 +198,9 @@ let g:vimsyn_folding='af'   " fold augroups and functions
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
+let g:airline_powerline_fonts=1 " use the powerline symbols
+let g:airline_highlighting_cache=1 " cache highlighting groups
+let g:airline_skip_empty_sections=1 " do not draw separator for empty sections
 let g:airline_symbols.crypt='🔒'
 "let g:airline_symbols.dirty='⚡'
 let g:airline_symbols.dirty='★'
