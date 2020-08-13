@@ -295,6 +295,10 @@ let g:indent_guides_exclude_filetypes=['help', 'calendar'] " disable on some fil
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
 
+" matchup plugin
+let g:matchup_override_vimtex = 1
+let g:matchup_matchparen_deferred = 1
+
 " notmuch_address plugin
 
 " signify plugin
