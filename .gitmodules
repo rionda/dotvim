@@ -52,9 +52,6 @@
 [submodule "pack/matteo/start/ctrlp.vim"]
 	path = pack/matteo/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "pack/matteo/start/ultisnips"]
-	path = pack/matteo/start/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "pack/matteo/start/vim-markdown"]
 	path = pack/matteo/start/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git

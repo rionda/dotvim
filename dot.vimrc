@@ -70,6 +70,7 @@ set foldlevelstart=0     " set foldlevel to zero when editing another buffer
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " Slightly cleaner fold text (note the whitespace after backslash)
 set fillchars="fold:\ "
+let loaded_matchparen=1  " disable the default matchparen plugin, we use matchup
 "set showmatch            " when inserting a parenthesis, briefly jump to the
                          "matching one. XXX: Disabling because it seems to "eat"
                          " characters from completion and others
@@ -221,6 +222,7 @@ let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "custom z section to only have line/totaline:column
 let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
 let g:airline_extensions =['branch'] " we only care about the branch extension
+let g:airline#extensions#branch#vcs_priority = ["git"]
 " airline ALE extension symbols (disabled anyway)
 "let airline#extensions#ale#warning_symbol='❗️'
 "let airline#extensions#ale#error_symbol='✗'
@@ -235,8 +237,8 @@ augroup CloseLoclistWindowGroup
     autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
 let g:ale_fix_on_save=1 " fix files on save
-" lint after 1000ms after changes are made
-let g:ale_lint_delay=1000
+" lint after 500ms after changes are made
+let g:ale_lint_delay=500
 " use nice symbols for errors and warnings
 let g:ale_sign_error='✗'
 " The following symbol is double width, which messes up columns
@@ -250,21 +252,30 @@ let g:ale_sign_style_error='🖍'
 let g:ale_sign_style_warning='🖌'
 " fixer configurations: always remove trailing lines
 let g:ale_fixers = {'*': ['remove_trailing_lines'],
-			\'python': ['trim_whitespace']
+			\'python': ['black', 'trim_whitespace'],
+			\'cpp': ['clang-format', 'clangtidy']
 \}
-let g:ale_linters={'cpp': ['clang'], 'python': ['flake8'], 'sh': ['shell'],
+let g:ale_linters={'cpp': ['cc'], 'python': ['flake8'], 'sh': ['shell'],
 			\'tex': ['chktex']}
-"let g:ale_cpp_clangtidy_checks = [ ]
+let g:ale_python_flake8_options='--max-line-length=99'
+let g:ale_cpp_clangtidy_checks = [ 'bugprone-*', 'openmp-*', 'clang-analyzer-*',
+			\'portability-*', 'readability-*']
 if s:uname == "Darwin\n"
 	let g:ale_python_flake8_executable='/opt/local/bin/flake8'
-	let g:ale_cpp_clang_executable="/opt/local/bin/clang++"
+	"let g:ale_cpp_cc_executable="/opt/local/bin/clang++"
+	let g:ale_cpp_cc_executable="/opt/local/bin/g++"
+	let g:ale_cpp_clangtidy_executable="/opt/local/bin/clang-tidy"
 elseif s:uname =="FreeBSD\n"
 	let g:ale_python_flake8_executable='/usr/local/bin/flake8'
-	let g:ale_cpp_clang_executable="/usr/local/bin/clang++10"
+	let g:ale_cpp_cc_executable="/usr/local/bin/clang++10"
 endif
 let g:ale_python_flake8_use_global=1
-let g:ale_c_parse_compile_commands=1
-let g:ale_cpp_clang_options="-std=gnu++17 -Wall -Wextra -Werror -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
+let g:ale_cpp_clangtidy_fix_errors=0 " Don't automatically fix clangtidy errors.
+" If there is a build_commands.json file, ALE will pick up the flags from there,
+" rather than using the following ones.
+let g:ale_cpp_cc_options="-std=gnu++17 -Wall -Wextra -Werror -pedantic -pedantic-errors -Wformat=2 -Wpointer-arith -Wcast-qual -fexceptions -fopenmp"
+let g:ale_languagetool_options="--autoDetect -d DASH_RULE,EN_QUOTES,MULTIPLICATION_SIGN"
+" [3],EN_QUOTES[1],EN_QUOTES[2]"
 
 " calendar plugin
 let g:calendar_google_calendar=1        " show events from google calendar
@@ -312,11 +323,11 @@ let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 " trailing-whitespace plugin
 let g:extra_whitespace_ignored_filetypes=['calendar', 'help']
 
-" UltiSnips plugin
+" UltiSnips plugin (disabled)
 " The snippets definition are in the UltiSnips directory
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+"let g:UltiSnipsExpandTrigger="<Tab>"
+"let g:UltiSnipsJumpForwardTrigger="<Tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " vimtex plugin
 let g:vimtex_fold_enabled=0 " custom vimtex folding (0 = disabled)
@@ -335,7 +346,7 @@ let g:vimtex_indent_on_ampersands=0	" Don't autoindent on ampersands in tabular
 "let g:vimtex_quickfix_autoclose_after_keystrokes=4 " autoclose the quickfix
 let g:vimtex_toc_enabled=0 " disable the TOC as we do not use it
 let g:vimtex_matchparen_enabled=0 " disable matching of parentheses as we use
-								  " the matchup plugins
+								  " the matchup plugin
 let g:vimtex_complete_bib={ 'simple': 1 }
 let g:vimtex_format_enabled=1 " enhanced formatexpr
 let g:vimtex_grammar_vlty={
@@ -347,7 +358,9 @@ if s:uname == "Darwin\n"
 endif
 
 " YouCompleteMe plugin
-let g:ycm_add_preview_to_completeopt='popup' " Add more info for semantic completion.
+let g:ycm_max_num_candidates=10
+let g:ycm_max_num_identifier_candidates=10
+let g:ycm_add_preview_to_completeopt='popup' " Show info in an popup window
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_auto_hover='' " Do not show documentation automatically.
