@@ -305,6 +305,7 @@ let g:indent_guides_exclude_filetypes=['help', 'calendar'] " disable on some fil
 
 " markdown plugin
 let g:vim_markdown_conceal=1 " use concealement in markdown files
+let g:vim_markdown_folding_disabled = 1 " disable markdown folding
 
 " matchup plugin
 let g:matchup_override_vimtex = 1
