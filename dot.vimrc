@@ -409,6 +409,12 @@ function! EnableYCMNotMuchAddress()
 endfunction
 autocmd VimEnter * call EnableYCMNotMuchAddress()
 
+" Enable fzf, even if we don't know how to really use it yet.
+if s:uname == "Darwin\n"
+	set rtp+=/opt/local/share/fzf/vim
+endif
+
+
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
 
