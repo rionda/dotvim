@@ -38,7 +38,7 @@ elif [ ${UNAME} = "Darwin" ]; then
     cp "${LLVM_DYLIB}" pack/matteo/start/YouCompleteMe/third_party/ycmd/third_party/clang/lib/ && \
     orig=$PWD && \
     cd pack/matteo/start/YouCompleteMe/third_party/ycmd/third_party/watchdog_deps/watchdog && \
-    rm -rf build/3
+    rm -rf build/3 && \
     python setup.py build --build-base=build/3 --build-lib=build/lib3 && \
     cd "${orig}" && \
     mkdir regex_build && \
