@@ -28,9 +28,6 @@
 [submodule "bundle/vim-signify"]
 	path = pack/matteo/start/signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule "bundle/YankRing"]
-	path = pack/matteo/start/YankRing
-	url = https://github.com/vim-scripts/YankRing.vim.git
 [submodule "bundle/vim-sensible"]
 	path = pack/matteo/start/sensible
 	url = git://github.com/tpope/vim-sensible.git
