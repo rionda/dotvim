@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function getYCMcommit() {
+getYCMcommit() {
     if [ -d pack/matteo/start/YouCompleteMe ]; then
         here=$PWD
         cd pack/matteo/start/YouCompleteMe && \
