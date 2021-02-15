@@ -289,6 +289,10 @@ autocmd FileType calendar match ErrorMsg ''
 let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
 let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
 
+" fugitive plugin
+command! -bang -bar -nargs=* Gpush execute 'Dispatch<bang> -dir=' .
+			\ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+
 " indent_guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
 let g:indent_guides_start_level=2        " show the guides starting at level 2
@@ -300,8 +304,8 @@ let g:vim_markdown_conceal=1 " use concealement in markdown files
 let g:vim_markdown_folding_disabled = 1 " disable markdown folding
 
 " matchup plugin
-let g:matchup_override_vimtex = 1
-let g:matchup_matchparen_deferred = 1
+let g:matchup_override_vimtex=1  " don't use vimtex matchup
+let g:matchup_matchparen_deferred=1 " delay highlighting while navigating
 
 " notmuch_address plugin
 
