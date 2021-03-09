@@ -291,7 +291,9 @@ let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
 
 " fugitive plugin
 command! -bang -bar -nargs=* Gpush execute 'Dispatch<bang> -dir=' .
-			\ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+		\ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+command! -bang -bar -nargs=* Gfetch execute 'Dispatch<bang> -dir=' .
+		\ fnameescape(FugitiveGitDir()) 'git fetch' <q-args>
 
 " indent_guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
