@@ -19,10 +19,10 @@ elif [ ${UNAME} = "Darwin" ]; then
     if [ -d ycm_build ]; then
     rm -rf ycm_build
     fi
-    EXTRA_CMAKE_ARGS="-DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPATH_TO_LLVM_ROOT=${LLVM_ROOT}" python3 ./install.py \\
+    EXTRA_CMAKE_ARGS="-DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPATH_TO_LLVM_ROOT=${LLVM_ROOT}" python3 ./install.py \
     --clang-completer --clang-tidy --java-completer --quiet
 elif [ ${UNAME} = "Linux" ]; then
-    python3 ./install.py \\
+    python3 ./install.py \
     --clang-completer --clang-tidy --java-completer --quiet
 else
     echo "Fix $0 to build on you OS." >&2
