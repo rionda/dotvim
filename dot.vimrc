@@ -212,9 +212,14 @@ let g:airline_symbols.spell='📖'
 let g:airline_section_y=''        " we don't care about fileencoding, fileformat
 let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "custom z section to only have line/totaline:column
-let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
-let g:airline_extensions =['branch'] " we only care about the branch extension
+"let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
+" empty z section
+let g:airline_section_z=''
+let g:airline_extensions =['branch', 'fugitiveline'] " we only care about the branch extension
 let g:airline#extensions#branch#vcs_priority = ["git"]
+let g:airline_filetype_overrides = {
+      \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+	  \ }
 " airline ALE extension symbols (disabled anyway)
 "let airline#extensions#ale#warning_symbol='❗️'
 "let airline#extensions#ale#error_symbol='✗'
