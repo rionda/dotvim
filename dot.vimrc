@@ -203,8 +203,9 @@ let g:airline_skip_empty_sections=1 " do not draw separator for empty sections
 let g:airline_symbols.crypt='🔒'
 "let g:airline_symbols.dirty='⚡'
 let g:airline_symbols.dirty='★'
-let g:airline_symbols.linenr=''
+let g:airline_symbols.linenr=' ' " space
 let g:airline_symbols.maxlinenr=''
+let g:airline_symbols.colnr = ' ㏇:'
 "let g:airline_symbols.readonly='🔒'
 let g:airline_symbols.readonly='🔏'
 "let g:airline_symbols.spell='SPL'
@@ -214,8 +215,8 @@ let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "custom z section to only have line/totaline:column
 "let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
 " empty z section
-let g:airline_section_z=''
-let g:airline_extensions =['branch', 'fugitiveline'] " we only care about the branch extension
+"let g:airline_section_z=''
+let g:airline_extensions =['branch', 'ctrlp', 'fugitiveline', 'hunks', 'vimtex'] " we only care about these extensions
 let g:airline#extensions#branch#vcs_priority = ["git"]
 let g:airline_filetype_overrides = {
       \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
