@@ -319,6 +319,7 @@ let g:matchup_matchparen_deferred=1 " delay highlighting while navigating
 
 " signify plugin
 let g:signify_sign_change='~' " use tilde for changed lines
+"autocmd User SignifyAutocmds autocmd! signify CursorHold,CursorHoldI
 
 " tex-conceal plugin
 " Avoid having inscrutable utf-8 glyphs appear
