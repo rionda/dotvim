@@ -7,7 +7,7 @@ runtime! plugin/sensible.vim
 if has("unix")
     let s:uname = system("uname -s")
 else
-	let s:uname = 'notunix'
+    let s:uname = 'notunix'
 endif
 
 "set nomodeline          " ignore modelines at the beginning of files (for the
@@ -59,7 +59,7 @@ set splitbelow           " open new horizontal splits on the bottom
 set switchbuf=usetab     " when switching between buffers, consider tabs in all
                          " windows. Suggested by command-t
 "set cursorline           " highlight the line of the cursor (disable because it
-						 "slows redrawing)
+                         "slows redrawing)
 set scrolloff=12         " keep at least 12 lines above and below the cursor
 " Highlight line number of where cursor currently is
 hi CursorLineNr guifg=#050505
@@ -114,7 +114,7 @@ set softtabstop=4        " set the number of columns for a TAB
 set smarttab             " insert tabs on the start of a line according to
                          " shiftwidth, not tabstop
 set timeoutlen=175      " millisecs timeout waiting for completion of mappings
-set ttimeoutlen=175		" millisecs timeout waiting for completion of key codes
+set ttimeoutlen=175        " millisecs timeout waiting for completion of key codes
 "set clipboard=unnamed " On OSX, use the clipboard for cut and paste. It's
                          "easier to use the '*' register (see help quotestar)
 set grepprg=grep\ -nH\ $* " Set the program for :grep.
@@ -220,7 +220,7 @@ let g:airline_extensions =['branch', 'ctrlp', 'fugitiveline', 'hunks', 'vimtex',
 let g:airline#extensions#branch#vcs_priority = ["git"]
 let g:airline_filetype_overrides = {
       \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
-	  \ }
+      \ }
 " airline ALE extension symbols (disabled anyway)
 "let airline#extensions#ale#warning_symbol='❗️'
 "let airline#extensions#ale#error_symbol='✗'
@@ -250,22 +250,22 @@ let g:ale_sign_style_error='🖍'
 let g:ale_sign_style_warning='🖌'
 " fixer configurations: always remove trailing lines
 let g:ale_fixers = {'*': ['remove_trailing_lines'],
-			\'python': ['black', 'trim_whitespace'],
-			\'cpp': ['clang-format', 'clangtidy']
+            \'python': ['black', 'trim_whitespace'],
+            \'cpp': ['clang-format', 'clangtidy']
 \}
 let g:ale_linters={'cpp': ['cc'], 'python': ['flake8'], 'sh': ['shell'],
-			\'tex': ['chktex']}
+            \'tex': ['chktex']}
 let g:ale_python_flake8_options='--max-line-length=99'
 let g:ale_cpp_clangtidy_checks = [ 'bugprone-*', 'openmp-*', 'clang-analyzer-*',
-			\'portability-*', 'readability-*']
+            \'portability-*', 'readability-*']
 if s:uname == "Darwin\n"
-	let g:ale_python_flake8_executable='/opt/local/bin/flake8'
-	"let g:ale_cpp_cc_executable="/opt/local/bin/clang++"
-	let g:ale_cpp_cc_executable="/opt/local/bin/g++"
-	let g:ale_cpp_clangtidy_executable="/opt/local/bin/clang-tidy"
+    let g:ale_python_flake8_executable='/opt/local/bin/flake8'
+    "let g:ale_cpp_cc_executable="/opt/local/bin/clang++"
+    let g:ale_cpp_cc_executable="/opt/local/bin/g++"
+    let g:ale_cpp_clangtidy_executable="/opt/local/bin/clang-tidy"
 elseif s:uname =="FreeBSD\n"
-	let g:ale_python_flake8_executable='/usr/local/bin/flake8'
-	let g:ale_cpp_cc_executable="/usr/local/bin/clang++10"
+    let g:ale_python_flake8_executable='/usr/local/bin/flake8'
+    let g:ale_cpp_cc_executable="/usr/local/bin/clang++10"
 endif
 let g:ale_python_flake8_use_global=1
 let g:ale_cpp_clangtidy_fix_errors=0 " Don't automatically fix clangtidy errors.
@@ -278,10 +278,10 @@ let g:ale_languagetool_options="--autoDetect -d DASH_RULE,EN_QUOTES,MULTIPLICATI
 " calendar plugin
 let g:calendar_google_calendar=1        " show events from google calendar
 let g:calendar_frame = 'unicode_double' " show a better frame XXX (doesn't work?)
-let g:calendar_first_day="monday"		" my week starts on Monday
-let g:calendar_date_month_name=1		" show the name of the month
-let g:calendar_view="week"				" show week view by default
-let g:calendar_cyclic_view=1			" cycle through views with < and >
+let g:calendar_first_day="monday"        " my week starts on Monday
+let g:calendar_date_month_name=1        " show the name of the month
+let g:calendar_view="week"                " show week view by default
+let g:calendar_cyclic_view=1            " cycle through views with < and >
 let g:calendar_task_width = 0
 "source ~/.cache/calendar.vim/credentials.vim
 source ~/.cache/calendar.vim/credentials-amherst.vim
@@ -297,9 +297,9 @@ let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
 
 " fugitive plugin
 command! -bang -bar -nargs=* Gpush execute 'Dispatch<bang> -dir=' .
-		\ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+        \ fnameescape(FugitiveGitDir()) 'git push' <q-args>
 command! -bang -bar -nargs=* Gfetch execute 'Dispatch<bang> -dir=' .
-		\ fnameescape(FugitiveGitDir()) 'git fetch' <q-args>
+        \ fnameescape(FugitiveGitDir()) 'git fetch' <q-args>
 
 " indent_guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
@@ -343,24 +343,24 @@ let g:vimtex_complete_close_braces=1 " close the brace after a label/citation
 let g:vimtex_syntax_autoload_packages = ['amsmath', 'cleveref', 'hyperref', 'mathtools', 'natbib', 'url']
 " Disable overfull/underfull \hbox warnings
 let g:vimtex_quickfix_ignore_filters = [
-			\ 'overfull', 'underfull'
+            \ 'overfull', 'underfull'
             \]
 let g:vimtex_indent_enabled=1 " custom vimtex indentation
 let g:vimtex_indent_delims={ 'include_modified_math' : 0} " Don't add indent
-												  "for \leftXXX and \rightXXX
-let g:vimtex_indent_on_ampersands=0	" Don't autoindent on ampersands in tabular
+                                                  "for \leftXXX and \rightXXX
+let g:vimtex_indent_on_ampersands=0    " Don't autoindent on ampersands in tabular
 "let g:vimtex_quickfix_autoclose_after_keystrokes=4 " autoclose the quickfix
 let g:vimtex_toc_enabled=0 " disable the TOC as we do not use it
 let g:vimtex_matchparen_enabled=0 " disable matching of parentheses as we use
-								  " the matchup plugin
+                                  " the matchup plugin
 let g:vimtex_complete_bib={ 'simple': 1 }
 let g:vimtex_format_enabled=1 " enhanced formatexpr
 let g:vimtex_grammar_vlty={
-			\'lt_directory': '/opt/local/share/java/LanguageTool',
-			\'show_suggestions': 1}
+            \'lt_directory': '/opt/local/share/java/LanguageTool',
+            \'show_suggestions': 1}
 " Enable the use of skim as the viewer when on OSX
 if s:uname == "Darwin\n"
-	let g:vimtex_view_method='skim'
+    let g:vimtex_view_method='skim'
 endif
 
 " YouCompleteMe plugin
@@ -381,8 +381,8 @@ let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
 
 " Set the Python path on OSX
 if s:uname == "Darwin\n"
-	let g:ycm_python_binary_path = '/opt/local/bin/python3'
-	let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
+    let g:ycm_python_binary_path = '/opt/local/bin/python3'
+    let g:ycm_server_python_interpreter = '/opt/local/bin/python3'
 endif
 " disable the YCM identifier completer.
 function! DisableYCMIdCompl()
@@ -404,18 +404,18 @@ endif
 autocmd VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 autocmd FileType tex call DisableYCMIdCompl()
 function! EnableYCMNotMuchAddress()
-	if exists('g:loaded_notmuchaddress')
-		" Email address completion with YouCompleteMe with not muchaddress
-		unlet g:ycm_filetype_blacklist.mail
-		let g:ycm_semantic_triggers.mail=g:notmuchaddress#config#ycmtrigger
-		autocmd FileType mail call DisableYCMIdCompl()
-	endif
+    if exists('g:loaded_notmuchaddress')
+        " Email address completion with YouCompleteMe with not muchaddress
+        unlet g:ycm_filetype_blacklist.mail
+        let g:ycm_semantic_triggers.mail=g:notmuchaddress#config#ycmtrigger
+        autocmd FileType mail call DisableYCMIdCompl()
+    endif
 endfunction
 autocmd VimEnter * call EnableYCMNotMuchAddress()
 
 " Enable fzf, even if we don't know how to really use it yet.
 if s:uname == "Darwin\n"
-	set rtp+=/opt/local/share/fzf/vim
+    set rtp+=/opt/local/share/fzf/vim
 endif
 
 
