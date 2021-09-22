@@ -309,6 +309,7 @@ let g:vim_markdown_folding_disabled = 1 " disable markdown folding
 " matchup plugin
 let g:matchup_override_vimtex=1  " don't use vimtex matchup
 let g:matchup_matchparen_deferred=1 " delay highlighting while navigating
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
 " notmuch_address plugin
 
