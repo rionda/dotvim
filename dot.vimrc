@@ -83,6 +83,7 @@ let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum" " Additional instructions for true
                                         "colors, needed in tmux
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum" " As above.
 set background=dark      " we use a dark background
+"set background=light	 " we use a light background
 colorscheme solarized8   " use the solarized8 coloscheme
 
 " Searching
