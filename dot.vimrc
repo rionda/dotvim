@@ -69,7 +69,8 @@ set foldlevel=0          " start with all folds closed
 set foldlevelstart=0     " set foldlevel to zero when editing another buffer
 " specifies for which commands a fold will be opened
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-" Slightly cleaner fold text (note the whitespace after backslash)
+" Slightly cleaner fold text (note the whitespace after backslash), suggested by
+" vimtex doc
 set fillchars="fold:\ "
 let loaded_matchparen=1  " disable the default matchparen plugin, we use matchup
 "set showmatch            " when inserting a parenthesis, briefly jump to the
@@ -185,9 +186,6 @@ set conceallevel=1          " Concealment of LaTeX code
 let g:tex_conceal='abdmg'   " Conceal accents, bold and italic, delimiters,
                             " math symbols, and Greek letters. Adding 's' would
                             " enable concealment for superscript and subscripts.
-let g:tex_fold_enabled=1    " Enable syntax folding in tex files. Despite the
-                            "use of the FastFold plugin, it seems very slow,
-                            "likely because it clashes with the vimtex plugin.
 
 " vim files
 let g:vimsyn_folding='af'   " fold augroups and functions
@@ -343,8 +341,7 @@ let g:extra_whitespace_ignored_filetypes=['calendar', 'help']
 "let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " vimtex plugin
-let g:vimtex_fold_enabled=0 " custom vimtex folding (0 = disabled)
-let g:vimtex_fold_manual=1  "  update the folds manually
+let g:vimtex_fold_enabled=1 " custom vimtex folding (0 = disabled)
 let g:vimtex_complete_close_braces=1 " close the brace after a label/citation
 " Disable overfull/underfull \hbox warnings
 let g:vimtex_quickfix_ignore_filters = [
