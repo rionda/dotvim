@@ -383,8 +383,8 @@ let g:ycm_complete_in_comments = 1
 " To avoid conflict with UltiSnips, use Ctrl-j and Ctrl-k to move between
 " completions, not tab.
 " See also https://github.com/ycm-core/YouCompleteMe/issues/36
-let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
+"let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
+"let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
 
 " Set the Python path on OSX
 if s:uname == "Darwin\n"
