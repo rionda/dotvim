@@ -67,3 +67,6 @@
 [submodule "pack/matteo/start/vim-matchup"]
 	path = pack/matteo/start/vim-matchup
 	url = https://github.com/andymass/vim-matchup.git
+[submodule "pack/matteo/start/fzf.vim"]
+	path = pack/matteo/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git

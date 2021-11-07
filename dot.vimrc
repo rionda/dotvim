@@ -293,8 +293,19 @@ autocmd FileType calendar setlocal nospell redrawtime=10000
 autocmd FileType calendar match ErrorMsg ''
 
 " Ctrl-P plugin
-let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
-let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
+"let g:ctrlp_map = '<leader>b' " Activate Ctrl-P with ,b
+"let g:ctrlp_cmd = 'CtrlPBuffer' " Default Ctrl-P to allow selection of buffers.
+
+" fzf plugin
+" First enable "standard" fzf vim extensions
+if s:uname == "Darwin\n"
+    set rtp+=/opt/local/share/fzf/vim
+endif
+" Then configure the fzf.vim plugin
+" use leader+g to search with ripgrep
+nnoremap <silent><leader>g :Rg<CR>
+" use leader+b to search among buffers
+nnoremap <silent><leader>b :Buffers<CR>
 
 " indent_guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " enable plugin on startup
@@ -408,12 +419,6 @@ function! EnableYCMNotMuchAddress()
     endif
 endfunction
 autocmd VimEnter * call EnableYCMNotMuchAddress()
-
-" Enable fzf, even if we don't know how to really use it yet.
-if s:uname == "Darwin\n"
-    set rtp+=/opt/local/share/fzf/vim
-endif
-
 
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
