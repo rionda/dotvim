@@ -346,8 +346,6 @@ let g:extra_whitespace_ignored_filetypes=['calendar', 'help']
 let g:vimtex_fold_enabled=0 " custom vimtex folding (0 = disabled)
 let g:vimtex_fold_manual=1  "  update the folds manually
 let g:vimtex_complete_close_braces=1 " close the brace after a label/citation
-" Autoload extra syntax support for amsmath, cleveref, natbib
-let g:vimtex_syntax_autoload_packages = ['amsmath', 'cleveref', 'hyperref', 'mathtools', 'natbib', 'url']
 " Disable overfull/underfull \hbox warnings
 let g:vimtex_quickfix_ignore_filters = [
             \ 'overfull', 'underfull'
