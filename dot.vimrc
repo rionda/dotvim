@@ -176,10 +176,6 @@ let g:sh_fold_enabled= 7 " Enable folding of functions, heredoc, and if/do/for
 
 " Tex settings. More settings for the vimtex plugin are below
 autocmd FileType tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-" Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vimtex not being loaded.
-" The following option resets the default filetype to 'tex'
-let g:tex_flavor = 'latex'
 let g:tex_comment_nospell=1 " don't spellcheck in latex comments
 let g:tex_verbspell=0       " don't spellcheck in latex verbatim environment
 set conceallevel=1          " Concealment of LaTeX code
