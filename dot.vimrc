@@ -358,8 +358,8 @@ if s:uname == "Darwin\n"
 endif
 
 " YouCompleteMe plugin
-let g:ycm_max_num_candidates=10
-let g:ycm_max_num_identifier_candidates=10
+let g:ycm_max_num_candidates=15
+let g:ycm_max_num_identifier_candidates=15
 let g:ycm_add_preview_to_completeopt='popup' " Show info in an popup window
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
