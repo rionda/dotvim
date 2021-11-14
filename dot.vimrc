@@ -383,9 +383,9 @@ function! DisableYCMIdCompl()
     if exists("g:ycm_min_num_of_chars_for_completion")
         if g:ycm_min_num_of_chars_for_completion < 99
             let g:ycm_min_num_of_chars_for_completion = 99
-            "if g:loaded_youcompleteme
-            "    call YcmRestartServer
-            "endif
+            if g:loaded_youcompleteme
+                :normal! YcmRestartServer
+            endif
         endif
     else
         let g:ycm_min_num_of_chars_for_completion = 99
