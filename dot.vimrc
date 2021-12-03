@@ -355,6 +355,7 @@ let g:vimtex_grammar_vlty={
 " Enable the use of skim as the viewer when on OSX
 if s:uname == "Darwin\n"
     let g:vimtex_view_method='skim'
+    let g:vimtex_view_skim_activate=1
 endif
 
 " YouCompleteMe plugin
