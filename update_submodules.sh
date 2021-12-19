@@ -12,7 +12,7 @@ getYCMcommit() {
 }
 
 oldycmcmt=`getYCMcommit`
-(echo "## Pulling from remote" && git pull) || exit 1
+(echo "## Pulling from remote" && git pull --no-rebase) || exit 1
 (echo "## Syncing submodules " && git submodule sync) || exit 1
 (echo "## Updating/Initing and merging submodules from their remote" &&  \
     git submodule update --init --remote --merge) || exit 1
@@ -23,7 +23,7 @@ git commit --no-gpg-sign pack/matteo/ -m "Sync submodules.") || \
 (echo "## Syncing submodules recursively" &&  \
     git submodule sync --recursive)
 (echo "## Updating submodules recursively" &&  \
-    git submodule update --init --recursive) || exit 1
+    git submodule update --init --recursive --merge) || exit 1
 newycmct=`getYCMcommit`
 if [ $oldycmcmt != $newycmct ]; then
     (echo "## Building YCM" && ./build_ycm.sh) || exit 1
