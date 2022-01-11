@@ -1,18 +1,18 @@
 [submodule "bundle/vim-fugitive"]
 	path = pack/matteo/start/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-plugin-minibufexpl"]
 	path = bundle/vim-plugin-minibufexpl
-	url = git://github.com/weynhamz/vim-plugin-minibufexpl
+	url = https://github.com/weynhamz/vim-plugin-minibufexpl
 [submodule "bundle/vim-airline"]
 	path = pack/matteo/start/airline
-	url = git://github.com/bling/vim-airline
+	url = https://github.com/bling/vim-airline
 [submodule "bundle/vim-colors-solarized"]
 	path = pack/matteo/opt/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
 [submodule "bundle/vimtex"]
 	path = pack/matteo/start/vimtex
-	url = git://github.com/lervag/vimtex
+	url = https://github.com/lervag/vimtex
 [submodule "bundle/YouCompleteMe"]
 	path = pack/matteo/start/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
@@ -30,16 +30,16 @@
 	url = https://github.com/mhinz/vim-signify.git
 [submodule "bundle/vim-sensible"]
 	path = pack/matteo/start/sensible
-	url = git://github.com/tpope/vim-sensible.git
+	url = https://github.com/tpope/vim-sensible.git
 [submodule "bundle/vim-eunuch"]
 	path = pack/matteo/start/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "bundle/vim-cmake"]
 	path = pack/matteo/start/vim-cmake
-	url = git://github.com/vhdirk/vim-cmake.git
+	url = https://github.com/vhdirk/vim-cmake.git
 [submodule "bundle/vim-dispatch"]
 	path = pack/matteo/start/dispatch
-	url = git://github.com/tpope/vim-dispatch.git
+	url = https://github.com/tpope/vim-dispatch.git
 [submodule "bundle/vim-solarized8"]
 	path = pack/matteo/opt/solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
@@ -54,7 +54,7 @@
 	url = https://github.com/tmux-plugins/vim-tmux.git
 [submodule "pack/matteo/start/vim-tmux-focus-events"]
 	path = pack/matteo/start/vim-tmux-focus-events
-	url = git://github.com/tmux-plugins/vim-tmux-focus-events.git
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
 [submodule "pack/matteo/start/neomutt.vim"]
 	path = pack/matteo/start/neomutt.vim
 	url = https://github.com/neomutt/neomutt.vim.git
