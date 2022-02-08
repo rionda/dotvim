@@ -2,8 +2,8 @@
 UNAME=`uname`
 cd pack/matteo/start/YouCompleteMe
 if [ ${UNAME} = "FreeBSD" ]; then
-    env LD_LIBRARY_PATH=/usr/local/llvm11/lib python3.8 ./install.py \
-    --clang-tidy --clang-completer --java-completer --system-libclang --system-boost --quiet
+    env LD_LIBRARY_PATH=/usr/local/llvm13/lib python3.8 ./install.py \
+    --clang-tidy --clang-completer --java-completer --system-libclang --quiet
 elif [ ${UNAME} = "Darwin" ]; then
     LLVM_ROOT=/opt/local/libexec/llvm-11/
     CLANG_DYLIB=${LLVM_ROOT}lib/libclang.dylib
