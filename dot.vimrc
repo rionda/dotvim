@@ -130,6 +130,10 @@ let mapleader=','      " use ',' as the leader
 " Use ,t to open a terminal
 nmap <leader>t    :terminal<CR>
 
+if s:uname =="FreeBSD\n"
+	let g:is_posix = 1    " Our /bin/sh is POSIX, not bash
+endif
+
 " Replace three dots with the horizontal ellipsis
 inoreabbrev ...  …
 
