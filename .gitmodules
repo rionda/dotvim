@@ -67,3 +67,6 @@
 [submodule "pack/matteo/start/fzf.vim"]
 	path = pack/matteo/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "pack/matteo/start/fzf"]
+	path = pack/matteo/start/fzf
+	url = https://github.com/junegunn/fzf.git
