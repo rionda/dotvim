@@ -339,9 +339,9 @@ let g:extra_whitespace_ignored_filetypes=['calendar', 'help']
 " vimtex plugin
 let g:vimtex_fold_enabled=1 " custom vimtex folding (0 = disabled)
 let g:vimtex_complete_close_braces=1 " close the brace after a label/citation
-" Disable overfull/underfull \hbox warnings
+" Ignore some warnings
 let g:vimtex_quickfix_ignore_filters = [
-            \ 'overfull', 'underfull'
+            \ 'Missing "publisher"', 'Missing "address"',
             \]
 let g:vimtex_indent_enabled=1 " custom vimtex indentation
 let g:vimtex_indent_delims={ 'include_modified_math' : 0} " Don't add indent
