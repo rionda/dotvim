@@ -39,6 +39,12 @@ set autowrite            " saves on certain actions, like make
 set autoread             " check for changes outside of vim
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.synctex*,*.aux,*.toc,*.snm,*.nav,*.fdb_latexmk,*.fls,*.gz,*.blg,*.bcf,*.pdf,*.bz2,*.png,*.jpeg,*.jpg,*.gif,*.zip,*.rar,*.tgz,*.tbz,*.docx,*.odp,*.pptx,*.dSYM " list of extensions to ignore
 
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 " Appearance
 set ttyfast              " assume a fast terminal connection
 set title                " change the terminal's title
