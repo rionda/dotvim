@@ -215,6 +215,7 @@ let g:airline_symbols.colnr = ' ㏇:'
 let g:airline_symbols.readonly='🔏'
 "let g:airline_symbols.spell='SPL'
 let g:airline_symbols.spell='📖'
+let g:airline_detect_spelllang='flag' " use flag of country for spellcheck
 let g:airline_section_y=''        " we don't care about fileencoding, fileformat
 let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "custom z section to only have line/totaline:column
