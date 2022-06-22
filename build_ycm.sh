@@ -5,7 +5,7 @@ if [ ${UNAME} = "FreeBSD" ]; then
     env LD_LIBRARY_PATH=/usr/local/llvm13/lib python3.8 ./install.py \
     --clang-tidy --clang-completer --java-completer --system-libclang --quiet
 elif [ ${UNAME} = "Darwin" ]; then
-    LLVM_ROOT=/opt/local/libexec/llvm-11/
+    LLVM_ROOT=/opt/local/libexec/llvm-14/
     CLANG_DYLIB=${LLVM_ROOT}lib/libclang.dylib
     LLVM_DYLIB=${LLVM_ROOT}lib/libLLVM.dylib
     if [ ! -f ${CLANG_DYLIB} ]; then
