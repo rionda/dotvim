@@ -18,6 +18,8 @@ elif [ ${UNAME} = "Darwin" ]; then
     fi
     EXTRA_CMAKE_ARGS="-DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DEXTERNAL_LIBCLANG_PATH=${CLANG_DYLIB} -DPATH_TO_LLVM_ROOT=${LLVM_ROOT}" python3 ./install.py \
     --clang-completer --clang-tidy --java-completer --quiet
+    # For some reason, the library is not copied, but it is needed.
+    cp ${CLANG_DYLIB} third_party/ycmd/third_party/clang/lib/
 elif [ ${UNAME} = "Linux" ]; then
     python3 ./install.py \
     --clang-completer --clang-tidy --java-completer --quiet
