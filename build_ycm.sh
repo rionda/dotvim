@@ -2,7 +2,12 @@
 UNAME=`uname`
 cd pack/matteo/start/YouCompleteMe
 if [ ${UNAME} = "FreeBSD" ]; then
-    env LD_LIBRARY_PATH=/usr/local/llvm13/lib python3.8 ./install.py \
+    LLVMLIB_PATH=/usr/local/llvm13/lib
+    if [ ! -d ${LLVMLIB_PATH} ]; then
+        echo "ERROR:" ${LLVMLIB_PATH} " not found: update LLVMLIB_PATH variable."
+        exit 1
+    fi
+    env LD_LIBRARY_PATH=${LLVMLIB_PATH} python3.9 ./install.py \
     --clang-tidy --clang-completer --java-completer --system-libclang --quiet
 elif [ ${UNAME} = "Darwin" ]; then
     LLVM_ROOT=/opt/local/libexec/llvm-15/
