@@ -94,7 +94,7 @@ if $TERM =="xterm-kitty"
 endif
 set background=dark      " we use a dark background
 "set background=light	 " we use a light background
-colorscheme solarized8   " use the solarized8 coloscheme
+colorscheme solarized8   " use the solarized8 colorscheme
 
 " Searching
 set ignorecase           " ignore case when searching
