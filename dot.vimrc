@@ -64,7 +64,7 @@ set splitright           " open new vertical splits to the right
 set splitbelow           " open new horizontal splits on the bottom
 set switchbuf=usetab     " when switching between buffers, consider tabs in all
                          " windows. Suggested by command-t
-"set cursorline           " highlight the line of the cursor (disable because it
+set cursorline           " highlight the line of the cursor (disable because it
                          "slows redrawing)
 set scrolloff=12         " keep at least 12 lines above and below the cursor
 " Highlight line number of where cursor currently is
