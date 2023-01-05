@@ -84,11 +84,8 @@ let loaded_matchparen=1  " disable the default matchparen plugin, we use matchup
                          " characters from completion and others
 set matchtime=2          " tenths of a second to show the matching parenthesis
 "set nowrap              " don't wrap lines
-"set termguicolors        " enable true colors, assuming that our terminal
-                         " supports them. While it does, it makes vim have a
-                         " washed-out background when using the solarized8
-                         " scheme, so we prefer this one, so vim falls back to
-                         " the terminal colors.
+set termguicolors        " enable true colors, assuming that our terminal
+                         " supports them
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Additional instructions for true
                                         "colors, needed in tmux
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " As above.
@@ -97,7 +94,9 @@ if $TERM =="xterm-kitty"
 endif
 set background=dark      " we use a dark background
 "set background=light	 " we use a light background
-let g:solarized_use16=1  " force the use of the terminal colors in solarized8
+"let g:solarized_use16=1  " force the use of the terminal colors in solarized8
+						  "when not using kitty. You may also need to disable
+						  "termguicolors
 colorscheme solarized8   " use the solarized8 colorscheme
 
 " Searching
