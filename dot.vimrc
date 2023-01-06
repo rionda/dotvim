@@ -288,19 +288,25 @@ let g:ale_languagetool_options="--autoDetect -d DASH_RULE,EN_QUOTES,MULTIPLICATI
 " [3],EN_QUOTES[1],EN_QUOTES[2]"
 
 " calendar plugin
+" If authentication fails, check the README of the plugin, but when you must
+" open the link, use safari, as it doesn't seem to like our firefox
 let g:calendar_google_calendar=1        " show events from google calendar
-let g:calendar_frame = 'unicode_double' " show a better frame XXX (doesn't work?)
-let g:calendar_first_day="monday"        " my week starts on Monday
-let g:calendar_date_month_name=1        " show the name of the month
-let g:calendar_view="week"                " show week view by default
+let g:calendar_frame='unicode_double'   " show a better frame
+let g:calendar_first_day="monday"       " my week starts on Monday
+"let g:calendar_date_month_name=1        " show the name of the month
+let g:calendar_date_full_month_name=1   " show full month name.
+let g:calendar_week_number=1            " show week number
+let g:calendar_view="week"              " show week view by default
+let g:calendar_views=['week', 'month', 'year']  " active views
 let g:calendar_cyclic_view=1            " cycle through views with < and >
-let g:calendar_task_width = 0
-"source ~/.cache/calendar.vim/credentials.vim
-source ~/.cache/calendar.vim/credentials-amherst.vim
+let g:calendar_task_width=0				" disable tasks
+if filereadable(expand('~/.cache/calendar.vim/credentials-amherst.vim'))
+	source ~/.cache/calendar.vim/credentials-amherst.vim
+endif
 " filetype autocmd for the calendar. Drawing the calendar is a bit slow, so give
 " it more time.
 autocmd FileType calendar setlocal nospell redrawtime=10000
-" trailing spaces are highlighted in calendar, probably by solarized8. Just don't.
+" trailing spaces are highlighted in calendar. Just don't.
 autocmd FileType calendar match ErrorMsg ''
 
 " fzf plugin
