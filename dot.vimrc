@@ -303,9 +303,9 @@ let g:calendar_task_width=0				" disable tasks
 if filereadable(expand('~/.cache/calendar.vim/credentials-amherst.vim'))
 	source ~/.cache/calendar.vim/credentials-amherst.vim
 endif
-" filetype autocmd for the calendar. Drawing the calendar is a bit slow, so give
-" it more time.
-autocmd FileType calendar setlocal nospell redrawtime=10000
+" filetype autocmd for the calendar, to disable various features. Also, drawing
+" the calendar is a bit slow, so give it more time.
+autocmd FileType calendar setlocal laststatus=0 noshowcmd showtabline=0 noshowmode noruler nospell redrawtime=10000
 " trailing spaces are highlighted in calendar. Just don't.
 autocmd FileType calendar match ErrorMsg ''
 
