@@ -228,7 +228,7 @@ let g:airline_section_x=''        " or about tagbar, filetype, virtualenv
 "let g:airline_section_z='%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#:%v'
 " empty z section
 "let g:airline_section_z=''
-let g:airline_extensions =['branch', 'fzf', 'fugitiveline', 'hunks', 'vimtex', 'ycm', 'whitespace'] " we only care about these extensions
+let g:airline_extensions =['branch', 'fzf', 'fugitiveline', 'hunks', 'vimtex', 'ycm', 'whitespace', 'tabline'] " we only care about these extensions
 let g:airline#extensions#branch#vcs_priority = ["git"]
 let g:airline_filetype_overrides = {
       \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
