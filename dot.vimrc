@@ -299,15 +299,25 @@ let g:calendar_week_number=1            " show week number
 let g:calendar_view="week"              " show week view by default
 let g:calendar_views=['week', 'month', 'year']  " active views
 let g:calendar_cyclic_view=1            " cycle through views with < and >
-let g:calendar_task_width=0				" disable tasks
+let g:calendar_task_width=0             " disable tasks
 if filereadable(expand('~/.cache/calendar.vim/credentials-amherst.vim'))
-	source ~/.cache/calendar.vim/credentials-amherst.vim
+    source ~/.cache/calendar.vim/credentials-amherst.vim
 endif
 " filetype autocmd for the calendar, to disable various features. Also, drawing
 " the calendar is a bit slow, so give it more time.
 autocmd FileType calendar setlocal laststatus=0 noshowcmd showtabline=0 noshowmode noruler nospell redrawtime=10000
 " trailing spaces are highlighted in calendar. Just don't.
 autocmd FileType calendar match ErrorMsg ''
+autocmd FileType calendar map <buffer><expr> n
+      \ b:calendar.view.get_calendar_views() ==# 'week' ? "7\<Plug>(calendar_next)" :
+      \ b:calendar.view.get_calendar_views() =~# 'day' ?
+      \   matchstr(b:calendar.view.get_calendar_views(), '\d\+') . "\<Plug>(calendar_next)" :
+      \ "\<Plug>(calendar_down_large)"
+autocmd FileType calendar map <buffer><expr> b
+      \ b:calendar.view.get_calendar_views() ==# 'week' ? "7\<Plug>(calendar_prev)" :
+      \ b:calendar.view.get_calendar_views() =~# 'day' ?
+      \   matchstr(b:calendar.view.get_calendar_views(), '\d\+') . "\<Plug>(calendar_prev)" :
+      \ "\<Plug>(calendar_up_large)"
 
 " fzf plugin
 " First enable "standard" fzf vim extensions
