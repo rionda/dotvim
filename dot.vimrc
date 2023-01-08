@@ -90,13 +90,13 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Additional instructions for true
                                         "colors, needed in tmux
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " As above.
 if $TERM =="xterm-kitty"
-	let &t_ut=''			 " Use to get correct background on kitty
+    let &t_ut=''             " Use to get correct background on kitty
 endif
 set background=dark      " we use a dark background
-"set background=light	 " we use a light background
+"set background=light     " we use a light background
 "let g:solarized_use16=1  " force the use of the terminal colors in solarized8
-						  "when not using kitty. You may also need to disable
-						  "termguicolors
+                          "when not using kitty. You may also need to disable
+                          "termguicolors
 colorscheme solarized8   " use the solarized8 colorscheme
 
 " Searching
@@ -143,7 +143,7 @@ let mapleader=','      " use ',' as the leader
 nmap <leader>t    :terminal<CR>
 
 if s:uname =="FreeBSD\n"
-	let g:is_posix = 1    " Our /bin/sh is POSIX, not bash
+    let g:is_posix = 1    " Our /bin/sh is POSIX, not bash
 endif
 
 " Replace three dots with the horizontal ellipsis
