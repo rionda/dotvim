@@ -297,7 +297,7 @@ let g:calendar_first_day="monday"       " my week starts on Monday
 let g:calendar_date_full_month_name=1   " show full month name.
 let g:calendar_week_number=1            " show week number
 let g:calendar_view="week"              " show week view by default
-let g:calendar_views=['week', 'month', 'year']  " active views
+let g:calendar_views=['week', 'month', 'year', 'clock']  " active views
 let g:calendar_cyclic_view=1            " cycle through views with < and >
 let g:calendar_task_width=0             " disable tasks
 if filereadable(expand('~/.cache/calendar.vim/credentials-amherst.vim'))
