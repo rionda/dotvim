@@ -395,6 +395,8 @@ let g:vimtex_format_enabled=1 " enhanced formatexpr
 let g:vimtex_grammar_vlty={
             \'lt_directory': '/opt/local/share/java/LanguageTool',
             \'show_suggestions': 1}
+" Map tab-lt to fzf for navigating
+nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 " Enable the use of skim as the viewer when on OSX
 if s:uname == "Darwin\n"
     let g:vimtex_view_method='skim'
