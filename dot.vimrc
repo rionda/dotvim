@@ -50,6 +50,9 @@ set ttyfast              " assume a fast terminal connection
 set title                " change the terminal's title
 set lazyredraw           " do not redraw while executing background macros and
                          " commands. Makes the macro faster (folklore?)
+set ttyscroll=3			 " if we scroll a lot, just redraw the window. Should
+                         " speed up scrolling especially when there are long
+                         " lines.
 set mouse=a              " activate the mouse
 set mousehide            " hide mouse pointer while typing
 set textwidth=80         " textwidth is 80 columns
@@ -70,6 +73,8 @@ set scrolloff=12         " keep at least 12 lines above and below the cursor
 " Highlight line number of where cursor currently is
 hi CursorLineNr guifg=#050505
 syntax on                " enable syntax highlighting
+set synmaxcol=128		 " give up syntax coloring lines that are too long, as
+                         " it slows down everything.
 set foldenable           " enable folding
 set foldlevel=0          " start with all folds closed
 set foldlevelstart=0     " set foldlevel to zero when editing another buffer
