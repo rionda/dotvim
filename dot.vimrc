@@ -199,10 +199,10 @@ let g:sh_fold_enabled= 7 " Enable folding of functions, heredoc, and if/do/for
 autocmd FileType tex setlocal autoindent expandtab textwidth=80 tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 let g:tex_comment_nospell=1 " don't spellcheck in latex comments
 let g:tex_verbspell=0       " don't spellcheck in latex verbatim environment
-set conceallevel=1          " Concealment of LaTeX code
-let g:tex_conceal='abdmg'   " Conceal accents, bold and italic, delimiters,
-                            " math symbols, and Greek letters. Adding 's' would
-                            " enable concealment for superscript and subscripts.
+set conceallevel=2          " Concealment of LaTeX code
+let g:tex_conceal='abdmgs'   " Conceal accents, bold and italic, delimiters,
+                            " math symbols, and Greek letters,
+                            " superscript/subscripts.
 
 " vim files
 let g:vimsyn_folding='af'   " fold augroups and functions
@@ -395,6 +395,21 @@ let g:vimtex_format_enabled=1 " enhanced formatexpr
 let g:vimtex_grammar_vlty={
             \'lt_directory': '/opt/local/share/java/LanguageTool',
             \'show_suggestions': 1}
+let g:vimtex_syntax_conceal = {
+          \ 'accents': 1,
+          \ 'ligatures': 1,
+          \ 'cites': 1,
+          \ 'fancy': 1,
+          \ 'spacing': 1,
+          \ 'greek': 1,
+          \ 'math_bounds': 1,
+          \ 'math_delimiters': 1,
+          \ 'math_fracs': 1,
+          \ 'math_super_sub': 1,
+          \ 'math_symbols': 1,
+          \ 'sections': 1,
+          \ 'styles': 1,
+          \} " conceal all we can
 " Map tab-lt to fzf for navigating
 nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 " Enable the use of skim as the viewer when on OSX
